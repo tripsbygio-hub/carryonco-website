@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Athens Travel Cheat Sheet — The Carry-On Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #1565C0;
+    --accent: #D4A843;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --text-dark: #1a1a1a;
+    --text-mid: #444;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--bg);
+    border-bottom: 6px solid var(--accent);
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  .brand-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .flag {
+    font-size: 52px;
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .city-name {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(72px, 12vw, 120px);
+    color: var(--white);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .country-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  .header-blurb {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    max-width: 640px;
+    margin: 20px auto 0;
+    line-height: 1.7;
+  }
+
+  .header-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .meta-pill {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  /* MAIN GRID */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 700px) {
+    main { grid-template-columns: 1fr; }
+    .full-width { grid-column: 1; }
+  }
+
+  .full-width { grid-column: 1 / -1; }
+
+  /* PANELS */
+  .panel {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .panel-header {
+    background: var(--bg);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .panel-header .section-icon {
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+  }
+
+  .panel-body {
+    padding: 20px;
+  }
+
+  /* PANEL ACCENT (accent bg header) */
+  .panel-accent .panel-header {
+    background: var(--accent);
+  }
+  .panel-accent .section-title {
+    color: var(--bg);
+    border-left-color: var(--bg);
+  }
+
+  /* ATTRACTIONS */
+  .attraction-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .attraction-item:last-child { border-bottom: none; }
+
+  .attraction-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .attraction-info { flex: 1; }
+
+  .attraction-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-dark);
+    line-height: 1.2;
+  }
+
+  .attraction-time {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--bg);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  .attraction-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #e53935;
+    font-weight: 500;
+    margin-top: 3px;
+  }
+
+  /* ITINERARY */
+  .day-block {
+    margin-bottom: 18px;
+  }
+  .day-block:last-child { margin-bottom: 0; }
+
+  .day-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bg);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .day-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+  }
+
+  .day-item {
+    display: flex;
+    gap: 10px;
+    padding: 5px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.4;
+  }
+
+  .day-time {
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--bg);
+    min-width: 52px;
+    padding-top: 1px;
+  }
+
+  /* FOOD */
+  .food-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .food-item {
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .food-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-dark);
+  }
+
+  .food-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-mid);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  /* TIPS */
+  .tip-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+  .tip-item:last-child { border-bottom: none; }
+
+  .tip-bullet {
+    color: var(--accent);
+    font-size: 18px;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  /* HOTELS */
+  .hotel-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .hotel-item:last-child { border-bottom: none; }
+
+  .hotel-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-dark);
+  }
+
+  .hotel-stars {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .hotel-area {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bg);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  .hotel-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: var(--text-mid);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  /* TRENDING / TIKTOK SECTION */
+  .trending-section {
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    grid-column: 1 / -1;
+  }
+
+  .trending-header {
+    background: #111;
+    border-bottom: 3px solid var(--accent);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .trending-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .trending-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-left: auto;
+  }
+
+  .trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0;
+  }
+
+  .trending-item {
+    padding: 20px 24px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .trending-item:nth-child(2n) { border-right: none; }
+
+  .trending-rank {
+    font-family: 'Anton', sans-serif;
+    font-size: 36px;
+    color: rgba(212,168,67,0.2);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .trending-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .trending-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .tiktok-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #010101, #1a1a2e);
+    border: 1px solid rgba(212,168,67,0.4);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .tiktok-btn:hover {
+    background: rgba(212,168,67,0.1);
+    border-color: var(--accent);
+  }
+
+  /* LOGISTICS */
+  .logistics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .logistics-item {
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .logistics-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--bg);
+    margin-bottom: 4px;
+  }
+
+  .logistics-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--text-dark);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg);
+    border-top: 3px solid var(--accent);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Anton', sans-serif;
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .footer-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+
+  .footer-accent {
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand-label">The Carry-On Co. // Travel Cheat Sheet</div>
+  <span class="flag">🇬🇷</span>
+  <div class="city-name">Athens</div>
+  <div class="country-name">Greece</div>
+  <p class="header-blurb">The birthplace of democracy, philosophy, and the Olympics. Athens sits under the Acropolis like a living museum — ancient ruins surrounded by a modern, chaotic, delicious city that surprises every visitor.</p>
+  <div class="header-meta">
+    <span class="meta-pill">🌞 Best: Apr–Jun / Sep–Oct</span>
+    <span class="meta-pill">💶 Currency: Euro (€)</span>
+    <span class="meta-pill">🌡 Summer: 30–35°C</span>
+    <span class="meta-pill">✈ Airport: ATH</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- TRENDING / TIKTOK -->
+  <div class="trending-section full-width">
+    <div class="trending-header">
+      <span style="font-size:20px;">🔥</span>
+      <span class="trending-title">Trending on TikTok & Instagram</span>
+      <span class="trending-sub">Verified picks — not just hype</span>
+    </div>
+    <div class="trending-grid">
+      <div class="trending-item">
+        <div class="trending-rank">01</div>
+        <div class="trending-name">O Thanasis</div>
+        <div class="trending-desc">Legendary souvlaki on Monastiraki Square since the 1960s. Always packed, always worth it. The kalamaki and mixed kebab platter is the move.</div>
+        <a class="tiktok-btn" href="https://www.tiktok.com/search?q=o+thanasis+athens" target="_blank">▶ TikTok #OThanasis</a>
+      </div>
+      <div class="trending-item">
+        <div class="trending-rank">02</div>
+        <div class="trending-name">Diporto</div>
+        <div class="trending-desc">Hidden basement taverna in the central market since 1887. No menu, no sign — just show up and eat whatever they're making. Absolutely incredible.</div>
+        <a class="tiktok-btn" href="https://www.tiktok.com/search?q=diporto+athens" target="_blank">▶ TikTok #DiportoAthens</a>
+      </div>
+      <div class="trending-item">
+        <div class="trending-rank">03</div>
+        <div class="trending-name">Hoocut</div>
+        <div class="trending-desc">Modern gourmet souvlaki in Monastiraki. Instagram-famous for a reason — elevated versions of the classics with premium ingredients.</div>
+        <a class="tiktok-btn" href="https://www.tiktok.com/search?q=hoocut+athens" target="_blank">▶ TikTok #Hoocut</a>
+      </div>
+      <div class="trending-item">
+        <div class="trending-rank">04</div>
+        <div class="trending-name">Spondi</div>
+        <div class="trending-desc">Two Michelin stars in Pangrati. Modern French-Mediterranean tasting menu in a stunning neoclassical building. The ultimate Athens splurge meal.</div>
+        <a class="tiktok-btn" href="https://www.tiktok.com/search?q=spondi+restaurant+athens" target="_blank">▶ TikTok #SpondiAthens</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATTRACTIONS -->
+  <div class="panel full-width">
+    <div class="panel-header">
+      <span class="section-icon">🏛</span>
+      <span class="section-title">Top Attractions</span>
+    </div>
+    <div class="panel-body">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0 24px;">
+        <div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🏛</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Acropolis + Parthenon</div>
+              <div class="attraction-time">2–3 hrs</div>
+              <div class="attraction-note">⚠ Go at sunrise. Book tickets online!</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🏺</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Acropolis Museum</div>
+              <div class="attraction-time">2–3 hrs</div>
+              <div class="attraction-note">⚠ Book ahead — sells out</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">⚱️</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Ancient Agora</div>
+              <div class="attraction-time">1.5 hrs</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🛍</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Monastiraki Flea Market</div>
+              <div class="attraction-time">2 hrs (Sunday best)</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🚶</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Plaka Neighborhood</div>
+              <div class="attraction-time">Half day</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🏛</span>
+            <div class="attraction-info">
+              <div class="attraction-name">National Archaeological Museum</div>
+              <div class="attraction-time">3 hrs · Free</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🏟</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Temple of Olympian Zeus</div>
+              <div class="attraction-time">1 hr</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🏃</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Panathenaic Stadium</div>
+              <div class="attraction-time">1 hr · Original Olympic stadium</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🌊</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Cape Sounion Day Trip</div>
+              <div class="attraction-time">3 hrs · Temple of Poseidon</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">⛵</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Aegina Island Day Trip</div>
+              <div class="attraction-time">Ferry 40 min · Stunning escape</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🌅</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Lycabettus Hill Sunset</div>
+              <div class="attraction-time">1 hr · Best city views</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🎨</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Benaki Museum</div>
+              <div class="attraction-time">2 hrs · Greek decorative arts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-DAY ITINERARY -->
+  <div class="panel full-width">
+    <div class="panel-header">
+      <span class="section-icon">📅</span>
+      <span class="section-title">3-Day Itinerary</span>
+    </div>
+    <div class="panel-body">
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 32px;">
+        <div class="day-block">
+          <div class="day-label">Day 1 — Ancient Athens</div>
+          <div class="day-item"><span class="day-time">7:00am</span>Acropolis at sunrise (beat the heat + crowds)</div>
+          <div class="day-item"><span class="day-time">10:00am</span>Acropolis Museum — 2 hrs</div>
+          <div class="day-item"><span class="day-time">1:00pm</span>Souvlaki lunch at O Thanasis, Monastiraki</div>
+          <div class="day-item"><span class="day-time">2:30pm</span>Monastiraki Flea Market wander</div>
+          <div class="day-item"><span class="day-time">4:00pm</span>Temple of Olympian Zeus + Panathenaic Stadium</div>
+          <div class="day-item"><span class="day-time">7:00pm</span>Dinner in Psiri neighborhood</div>
+          <div class="day-item"><span class="day-time">9:00pm</span>Evening cocktails with Acropolis view</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 2 — Culture + Neighborhoods</div>
+          <div class="day-item"><span class="day-time">9:00am</span>National Archaeological Museum</div>
+          <div class="day-item"><span class="day-time">12:00pm</span>Lunch at Diporto (arrive early, cash only)</div>
+          <div class="day-item"><span class="day-time">2:00pm</span>Plaka neighborhood stroll</div>
+          <div class="day-item"><span class="day-time">3:30pm</span>Ancient Agora + Stoa of Attalos</div>
+          <div class="day-item"><span class="day-time">6:00pm</span>Sunset hike to Lycabettus Hill</div>
+          <div class="day-item"><span class="day-time">8:30pm</span>Dinner at Hoocut (gourmet souvlaki)</div>
+          <div class="day-item"><span class="day-time">10:00pm</span>Ouzo bar in Monastiraki</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 3 — Day Trip</div>
+          <div class="day-item"><span class="day-time">8:30am</span>Ferry from Piraeus to Aegina island</div>
+          <div class="day-item"><span class="day-time">9:30am</span>Explore Aegina town + pistachios!</div>
+          <div class="day-item"><span class="day-time">11:00am</span>Temple of Aphaia (stunning hilltop site)</div>
+          <div class="day-item"><span class="day-time">1:00pm</span>Seafood lunch on the harbor</div>
+          <div class="day-item"><span class="day-time">4:00pm</span>Ferry back to Athens</div>
+          <div class="day-item"><span class="day-time">7:00pm</span>Benaki Museum evening (Thu–Sun late)</div>
+          <div class="day-item"><span class="day-time">9:00pm</span>Splurge dinner at Spondi ⭐⭐</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOD -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="section-icon">🍽</span>
+      <span class="section-title">What to Eat</span>
+    </div>
+    <div class="panel-body">
+      <div class="food-grid">
+        <div class="food-item">
+          <div class="food-name">Souvlaki</div>
+          <div class="food-desc">Grilled meat in pita with tzatziki and tomato. The original Greek street food.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Moussaka</div>
+          <div class="food-desc">Layered eggplant, minced lamb, and béchamel. The national comfort dish.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Spanakopita</div>
+          <div class="food-desc">Flaky phyllo pastry stuffed with spinach and feta. Perfect street snack.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Horiatiki</div>
+          <div class="food-desc">Real Greek salad — no lettuce. Tomato, cucumber, olives, feta block on top.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Fresh Seafood</div>
+          <div class="food-desc">Grilled octopus, sea bass, and calamari. Head to Piraeus for the best.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Loukoumades</div>
+          <div class="food-desc">Honey-drizzled Greek donuts. Get them warm from street vendors in Monastiraki.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Baklava</div>
+          <div class="food-desc">Layers of phyllo with honey and pistachios. Try it fresh from a bakery.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Ouzo + Mezedes</div>
+          <div class="food-desc">Anise spirit served with small plates. Always enjoyed with food, never alone.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCAL TIPS -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="section-icon">💡</span>
+      <span class="section-title">Local Tips</span>
+    </div>
+    <div class="panel-body">
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Book Acropolis and Acropolis Museum tickets online well in advance — they sell out completely in peak season.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Visit the Acropolis at 8am when it opens — heat and crowds both increase dramatically after 10am.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>The Athens transport day pass covers metro, bus, and tram. Buy at the airport machine on arrival.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Tipping 5–10% in restaurants is appreciated but not mandatory. Round up for good service.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Diporto is cash only and has no sign — look for a basement entrance near Sofokleous Street market.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Psiri and Monastiraki are the best neighborhoods for nightlife and late-night eating.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Avoid July–August if heat is a concern. September–October is the sweet spot: warm, less crowded.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Athens runs on late schedules — dinner starts at 9pm. Don't show up at a restaurant at 7pm and wonder why it's empty.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOTELS -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="section-icon">🏨</span>
+      <span class="section-title">Where to Stay</span>
+    </div>
+    <div class="panel-body">
+      <div class="hotel-item">
+        <div class="hotel-name">Hotel Grande Bretagne <span class="hotel-stars">★★★★★</span></div>
+        <div class="hotel-area">Syntagma Square</div>
+        <div class="hotel-note">The legendary Athens grand dame. Rooftop pool and restaurant with Acropolis views. The most iconic address in the city.</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Electra Metropolis <span class="hotel-stars">★★★★</span></div>
+        <div class="hotel-area">Syntagma / Plaka</div>
+        <div class="hotel-note">Rooftop infinity pool with breathtaking Acropolis views. Modern design, great location, consistently excellent service.</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Hotel Herodion <span class="hotel-stars">★★★★</span></div>
+        <div class="hotel-area">Near Acropolis</div>
+        <div class="hotel-note">Walk to the Acropolis in 5 minutes. Rooftop restaurant with direct views of the Parthenon. Excellent value for location.</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Budget Tip</div>
+        <div class="hotel-area">Monastiraki or Psiri</div>
+        <div class="hotel-note">Stay in Monastiraki or Psiri for the best bang for your buck. Central, walkable to everything, great street food at the door.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGISTICS -->
+  <div class="panel panel-accent">
+    <div class="panel-header">
+      <span class="section-icon">🗺</span>
+      <span class="section-title">Getting Around</span>
+    </div>
+    <div class="panel-body">
+      <div class="logistics-grid">
+        <div class="logistics-item">
+          <div class="logistics-label">Airport → Center</div>
+          <div class="logistics-value">Metro Line 3 direct to Syntagma (40 min, €9). Taxi ~€40, 30–60 min.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">Metro</div>
+          <div class="logistics-value">3 lines cover key sights. Day pass €4.50. Validate before boarding.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">Walking</div>
+          <div class="logistics-value">Central Athens is very walkable. Plaka → Monastiraki → Psiri all on foot.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">Taxis / Rideshare</div>
+          <div class="logistics-value">Bolt and Free Now apps work well. Cheaper than metered taxis.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">Day Trips</div>
+          <div class="logistics-value">Aegina: Piraeus ferry. Cape Sounion: KTEL bus from Areos Park (€6.50).</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">Language</div>
+          <div class="logistics-value">Greek. English widely spoken in tourist areas. Learn: "Efharisto" (thank you).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">The Carry-On <span class="footer-accent">Co.</span></div>
+  <div class="footer-tagline">Smart travel intelligence for carry-on travelers · thecarryonco.com</div>
+</footer>
+
+</body>
+</html>

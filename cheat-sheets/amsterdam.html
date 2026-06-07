@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amsterdam Travel Cheat Sheet — The Carry-On Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#AE1C28;color:#1a1a1a;}
+.page-wrap{max-width:900px;margin:0 auto;padding:20px;}
+.header{background:#AE1C28;padding:40px 32px 32px;position:relative;text-align:center;border-bottom:6px solid #21468B;}
+.flag-badge{position:absolute;top:20px;right:24px;font-size:40px;}
+.city-name{font-family:'Anton',sans-serif;font-size:clamp(48px,10vw,100px);color:#fff;line-height:0.9;letter-spacing:-2px;text-shadow:2px 4px 0 rgba(0,0,0,0.3);}
+.city-tagline{font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:#fff;margin:10px 0 6px;opacity:0.85;}
+.city-blurb{font-size:15px;color:rgba(255,255,255,0.85);max-width:560px;margin:0 auto;line-height:1.6;}
+.panel{background:#fff;margin:4px 0;padding:28px 32px;}
+.panel-accent{background:#21468B;margin:4px 0;padding:20px 32px;}
+.section-title{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#AE1C28;border-left:4px solid #AE1C28;padding-left:12px;margin-bottom:16px;}
+.section-title-dark{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#fff;border-left:4px solid #fff;padding-left:12px;margin-bottom:16px;}
+p{font-size:14px;line-height:1.75;color:#333;margin-bottom:8px;}
+strong{color:#1a1a1a;font-weight:600;}
+.specialty{background:#AE1C28;color:#fff;padding:18px 24px;margin-bottom:16px;border-left:5px solid #21468B;}
+.specialty h3{font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:4px;opacity:0.9;}
+.specialty p{color:rgba(255,255,255,0.9);font-size:13px;margin:0;}
+.restaurant{padding:10px 0;border-bottom:1px solid #f0f0f0;}
+.restaurant:last-child{border-bottom:none;}
+.restaurant-name{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#1a1a1a;}
+.restaurant-type{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#AE1C28;margin-bottom:2px;}
+.restaurant-desc{font-size:13px;color:#555;line-height:1.5;}
+.trending-section{background:#111;padding:28px 32px;margin:4px 0;}
+.trending-title{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#D4A843;border-left:4px solid #D4A843;padding-left:12px;margin-bottom:16px;}
+.trending-card{background:#1e1e1e;border:1px solid rgba(212,168,67,0.2);padding:16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+.trending-card:last-child{margin-bottom:0;}
+.trending-name{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;color:#fff;margin-bottom:4px;}
+.trending-desc{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;}
+.tiktok-btn{background:#D4A843;color:#111;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 14px;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.attraction{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid #f5f5f5;}
+.attraction:last-child{border-bottom:none;}
+.attraction-name{font-size:14px;font-weight:500;color:#1a1a1a;}
+.attraction-time{font-size:12px;color:#AE1C28;font-weight:600;white-space:nowrap;margin-left:12px;}
+.day-block{margin-bottom:20px;}
+.day-label{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:#AE1C28;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #AE1C28;}
+.day-item{display:flex;gap:14px;margin-bottom:10px;}
+.day-time{font-size:12px;font-weight:600;color:#AE1C28;min-width:52px;padding-top:2px;}
+.day-text{font-size:13px;color:#333;line-height:1.6;}
+.tip-item{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+.tip-bullet{color:#fff;font-size:16px;margin-top:1px;flex-shrink:0;}
+.tip-text{font-size:14px;color:#fff;line-height:1.6;}
+.hotel{padding:10px 0;border-bottom:1px solid #f0f0f0;}
+.hotel:last-child{border-bottom:none;}
+.hotel-name{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#1a1a1a;}
+.hotel-stars{color:#AE1C28;font-size:13px;}
+.hotel-area{font-size:12px;color:#AE1C28;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+.hotel-desc{font-size:13px;color:#555;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+footer{background:#1a1a1a;color:rgba(255,255,255,0.5);text-align:center;padding:20px;font-size:12px;line-height:1.8;}
+footer a{color:#D4A843;text-decoration:none;}
+@media(max-width:600px){.header{padding:32px 20px 24px;}.panel,.trending-section{padding:20px 18px;}.trending-card{flex-direction:column;}.tiktok-btn{width:100%;text-align:center;}.two-col{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="flag-badge">🇳🇱</div>
+  <div class="city-name">AMSTERDAM</div>
+  <div class="city-tagline">Your full travel guide so you don't miss anything</div>
+  <p class="city-blurb">Canals, cycling, world-class museums, and the most relaxed urban culture in Europe. Amsterdam is smaller than you expect and more interesting than you imagine.</p>
+</div>
+
+<!-- GETTING THERE -->
+<div class="panel">
+  <div class="section-title">Getting There</div>
+  <div class="two-col">
+    <div>
+      <p><strong>Amsterdam Schiphol Airport (AMS)</strong> — One of Europe's best-connected hubs. 18km southwest of the city center. Clean, efficient, easy to navigate.</p>
+      <p><strong>Intercity Direct train:</strong> Schiphol to Amsterdam Centraal in 17 minutes, €5.50. Trains run every 10 minutes. The best and fastest option by far — buy ticket at yellow NS machines or use the OV-chipkaart.</p>
+      <p><strong>Taxi:</strong> Fixed rate from Schiphol to central Amsterdam is approximately €45–55. Takes 20–40 minutes depending on traffic.</p>
+    </div>
+    <div>
+      <p><strong>Eurostar / Thalys from London:</strong> London to Amsterdam in under 4 hours direct (via Brussels). Beautiful journey — book ahead for €65–120 return.</p>
+      <p><strong>ICE from Germany:</strong> Berlin (~6hrs), Cologne (~2.5hrs), Frankfurt (~4hrs). Comfortable high-speed trains, no airport stress.</p>
+      <p><strong>Thalys from Paris:</strong> Paris Gare du Nord to Amsterdam Centraal in 3.5hrs. One of the great European train routes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- GETTING AROUND -->
+<div class="panel" style="background:#f9f9f9;">
+  <div class="section-title">Getting Around</div>
+  <div class="specialty">
+    <h3>Rent a Bike — It's Not Optional</h3>
+    <p>Amsterdam has more bikes than people. The entire city is designed for cycling. Renting a bike (€12–15/day from MacBike or a local shop) transforms your experience. Within one hour you'll feel like a local. The bike lanes are dedicated and separate from roads.</p>
+  </div>
+  <div class="two-col">
+    <div>
+      <p><strong>Tram:</strong> Extensive network, extremely useful. Get the GVB day ticket (€9) or load an OV-chipkaart. Tram 2, 11, 12 cover most tourist areas. Buy tickets in the GVB app before boarding.</p>
+      <p><strong>Metro:</strong> Less useful for tourists but handy for Amsterdam Noord (cross the IJ by ferry from Centraal — free and beautiful) and southeast. Clean and fast.</p>
+    </div>
+    <div>
+      <p><strong>Walking:</strong> The canal ring is compact — you can walk the Jordaan to the Rijksmuseum in 20 minutes. Walking is a legitimate primary transport method in good weather.</p>
+      <p><strong>Boat tours:</strong> Canal boat tours run constantly from near Centraal Station. 1hr loop (~€18–22). The architecture is exceptional from water level. Evening tours with lights on the bridges are romantic and popular.</p>
+    </div>
+  </div>
+  <p style="margin-top:12px;"><strong>Bike safety:</strong> Watch for trams and their tracks — your wheel can get caught in tram lines. Stay in the dedicated red bike lanes. Do not cycle on foot pavements.</p>
+</div>
+
+<!-- HOTELS -->
+<div class="panel">
+  <div class="section-title">Where to Stay</div>
+  <div class="hotel">
+    <div class="hotel-area">Prinsengracht — Canal House Luxury</div>
+    <div class="hotel-name">Pulitzer Amsterdam <span class="hotel-stars">★★★★★</span></div>
+    <div class="hotel-desc">25 interconnected 17th and 18th-century canal houses turned into one hotel. Each room is different — exposed beams, original fireplaces, canal views. The internal garden is extraordinary. From €450/night.</div>
+  </div>
+  <div class="hotel">
+    <div class="hotel-area">University Quarter — Boutique Design</div>
+    <div class="hotel-name">Hotel V Nesplein <span class="hotel-stars">★★★★</span></div>
+    <div class="hotel-desc">Stylish, modern design hotel in a quiet square near Spui. Excellent bar, warm staff, central location. One of Amsterdam's best boutique options for the price. From €200/night.</div>
+  </div>
+  <div class="hotel">
+    <div class="hotel-area">A'DAM Tower, Noord — Design & Views</div>
+    <div class="hotel-name">Sir Adam Hotel <span class="hotel-stars">★★★★</span></div>
+    <div class="hotel-desc">Music-themed design hotel in the A'DAM Tower, 5-minute free ferry from Centraal. Vinyl players in rooms, rooftop swing over the city, great bar. Hipster atmosphere done genuinely well. From €180/night.</div>
+  </div>
+  <div class="hotel">
+    <div class="hotel-area">Budget Tip</div>
+    <div class="hotel-name">Stay in De Pijp or Jordaan</div>
+    <div class="hotel-desc">De Pijp is Amsterdam's most vibrant local neighborhood — Albert Cuyp Market, multicultural food, young crowd. Jordaan is quieter and extremely charming with its narrow canals. Both are 15 min from the major museums and 30–40% cheaper than Centrum hotels.</div>
+  </div>
+</div>
+
+<!-- FOOD -->
+<div class="panel" style="background:#f9f9f9;">
+  <div class="section-title">What to Eat</div>
+  <div class="two-col">
+    <div>
+      <div class="specialty">
+        <h3>Stroopwafels</h3>
+        <p>Two thin waffles sandwiched with caramel syrup — invented in Gouda in 1810. The best ones come from market stalls, made fresh and still warm. Eat them hot with a coffee, balancing the waffle on your cup to soften the caramel.</p>
+      </div>
+      <div class="specialty">
+        <h3>Bitterballen</h3>
+        <p>Deep-fried crispy balls with a molten ragout interior — beef or veal, heavily seasoned, served with mustard. The definitive Dutch bar snack. Order with a jenever (Dutch gin) and you're doing it correctly.</p>
+      </div>
+      <div class="specialty">
+        <h3>Haring (Raw Herring)</h3>
+        <p>The most Dutch thing you can eat. Fresh herring served raw with diced onions and pickles — hold it by the tail and lower it into your mouth. Sounds alarming, tastes remarkably mild and clean. Best from a harbor-side stall, freshest in May–June.</p>
+      </div>
+    </div>
+    <div>
+      <div class="specialty">
+        <h3>Dutch Cheese</h3>
+        <p>Gouda and Edam are the world-famous exports, but the real find is aged Gouda (old Amsterdam or boerenkaas) — crystalline, nutty, almost parmesan-like intensity. Buy from a proper kaaswinkel (cheese shop) on the Jordaan.</p>
+      </div>
+      <div class="specialty">
+        <h3>Poffertjes</h3>
+        <p>Tiny, fluffy mini-pancakes made in special cast iron pans, served with butter and powdered sugar. A market staple and childhood memory for every Dutch person. Find them at the Albert Cuyp Market.</p>
+      </div>
+      <div class="specialty">
+        <h3>Jenever Gin</h3>
+        <p>The original gin — Dutch-style juniper spirit, maltier and softer than London dry. Young (jonge) is lighter; old (oude) is richer and rounder. Order it at a traditional brown café (bruine kroeg) in a proper shot glass. €3–4.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRENDING -->
+<div class="trending-section">
+  <div class="trending-title">Trending Right Now — TikTok & Foodie Approved</div>
+  <div class="trending-card">
+    <div>
+      <div class="trending-name">Café Winkel 43</div>
+      <div class="trending-desc">A Jordaan institution on Noordermarkt famous for one thing: apple pie. Thick, warm, cinnamon-heavy, served with a cloud of whipped cream. Serious queues on Saturday and Sunday mornings when the market runs outside. The inside is cozy and the canal view from the corner table is perfect.</div>
+    </div>
+    <a class="tiktok-btn" href="https://www.tiktok.com/search?q=Cafe+Winkel+43+Amsterdam" target="_blank">TikTok →</a>
+  </div>
+  <div class="trending-card">
+    <div>
+      <div class="trending-name">Van Stapele Koekmakerij</div>
+      <div class="trending-desc">A tiny cookie shop near Spui that sells exactly one product: warm dark chocolate cookies with a white chocolate center, sold by the bag. Always a queue, always sells out. The simplicity is the point — they make one thing and they make it perfectly. Follow the smell.</div>
+    </div>
+    <a class="tiktok-btn" href="https://www.tiktok.com/search?q=Van+Stapele+Amsterdam" target="_blank">TikTok →</a>
+  </div>
+  <div class="trending-card">
+    <div>
+      <div class="trending-name">Lourens</div>
+      <div class="trending-desc">A classic bruine kroeg (brown café) in the Jordaan with honest Dutch pub food done well — excellent bitterballen, good bier, jenever selection that includes harder-to-find Dutch brands. The kind of local bar where regulars have a regular table and the bartender knows your order.</div>
+    </div>
+    <a class="tiktok-btn" href="https://www.tiktok.com/search?q=Lourens+Amsterdam+bar" target="_blank">TikTok →</a>
+  </div>
+  <div class="trending-card">
+    <div>
+      <div class="trending-name">Foodhallen</div>
+      <div class="trending-desc">An indoor street food market housed in a converted 1920s tram depot in De Pijp. 20+ food vendors, craft beer, good wine, a large communal space with great energy. Dutch, Asian, Middle Eastern, burgers — rotating vendors. Best for lunch or early dinner. Very popular on weekends.</div>
+    </div>
+    <a class="tiktok-btn" href="https://www.tiktok.com/search?q=Foodhallen+Amsterdam" target="_blank">TikTok →</a>
+  </div>
+</div>
+
+<!-- ATTRACTIONS -->
+<div class="panel">
+  <div class="section-title">Top Attractions</div>
+  <div class="attraction"><span class="attraction-name">Rijksmuseum ⚠️ Book ahead — Dutch masters, Rembrandt, Vermeer</span><span class="attraction-time">3–4 hrs</span></div>
+  <div class="attraction"><span class="attraction-name">Van Gogh Museum ⚠️ Book WEEKS ahead — sells out completely in season</span><span class="attraction-time">2–3 hrs</span></div>
+  <div class="attraction"><span class="attraction-name">Anne Frank House ⚠️ Book MONTHS ahead — one of the most important sites in Europe</span><span class="attraction-time">1.5–2 hrs</span></div>
+  <div class="attraction"><span class="attraction-name">Jordaan neighborhood — canals, cafés, art galleries, markets</span><span class="attraction-time">Half day</span></div>
+  <div class="attraction"><span class="attraction-name">Canal Ring by boat — evening tour especially beautiful</span><span class="attraction-time">1 hr</span></div>
+  <div class="attraction"><span class="attraction-name">Vondelpark — Amsterdam's central park, free, wonderful in good weather</span><span class="attraction-time">2 hrs</span></div>
+  <div class="attraction"><span class="attraction-name">A'DAM Lookout — rooftop swing, panoramic city views, Noord side</span><span class="attraction-time">1 hr</span></div>
+  <div class="attraction"><span class="attraction-name">NEMO Science Museum — green ship building, rooftop terrace views</span><span class="attraction-time">2 hrs</span></div>
+  <div class="attraction"><span class="attraction-name">Zaanse Schans — working windmill village, 20min from Amsterdam</span><span class="attraction-time">Half day</span></div>
+  <div class="attraction"><span class="attraction-name">Haarlem day trip — charming medieval city, 30min by train</span><span class="attraction-time">Half day</span></div>
+  <div class="attraction"><span class="attraction-name">Heineken Experience — interactive brewery tour and tastings</span><span class="attraction-time">1.5 hrs</span></div>
+  <div class="attraction"><span class="attraction-name">Albert Cuyp Market — best street market in Amsterdam, De Pijp</span><span class="attraction-time">1–2 hrs</span></div>
+</div>
+
+<!-- LOCAL RHYTHM -->
+<div class="panel" style="background:#f9f9f9;">
+  <div class="section-title">Local Rhythm — How Amsterdam Actually Works</div>
+  <p><strong>Gezelligheid:</strong> The untranslatable Dutch concept of warmth, conviviality, and coziness. It's the reason brown cafés are dark and candlelit. It's why Dutch people gather around small tables and talk slowly. Lean into it — find a bruine kroeg, order a beer, sit for two hours. That's Amsterdam.</p>
+  <p><strong>Markets:</strong> Saturday morning at Noordermarkt (organic food and antiques) and Albert Cuyp Market (every weekday and Saturday) are the best ways to feel local. Sunday morning at the Waterlooplein flea market is chaotic and brilliant.</p>
+  <p><strong>Museums:</strong> Amsterdam's major museums require advance booking — not as a suggestion but as a practical necessity. The Van Gogh Museum and Anne Frank House routinely sell out 3–4 months ahead in summer. Book the moment your dates are set.</p>
+  <p><strong>Cycling etiquette:</strong> Never walk in a bike lane (they're usually red asphalt). Look both ways twice for bikes before crossing any street. Amsterdammers on bikes do not stop — you need to navigate around them. It's not rude; it's just the physics of the city.</p>
+  <p><strong>Coffee shops vs. cafés:</strong> A café is a bar or restaurant. A coffee shop (with a cannabis leaf logo) is something else entirely. Legal for adults 18+ to purchase and consume on-site. Foreign visitors: regulations have tightened in recent years — check current rules as they vary by city zone.</p>
+  <p><strong>Closing times:</strong> Amsterdam is not a late city. Kitchens often close by 10pm. Plan dinner for 7–8pm. The city's nightlife is concentrated in specific areas (Leidseplein, Rembrandtplein) if you're looking for it after midnight.</p>
+</div>
+
+<!-- 3-DAY ITINERARY -->
+<div class="panel">
+  <div class="section-title">3-Day Itinerary</div>
+  <div class="day-block">
+    <div class="day-label">Day 1 — Museums + Jordaan</div>
+    <div class="day-item"><div class="day-time">9:00 AM</div><div class="day-text">Rijksmuseum — book opening slot. Head straight for the Gallery of Honour (Rembrandt's Night Watch, Vermeer's Milkmaid). Stay 2–3 hours minimum. The building itself is extraordinary.</div></div>
+    <div class="day-item"><div class="day-time">12:00 PM</div><div class="day-text">Van Gogh Museum — directly next door. Book this separately and for the same morning block if possible. The progression from dark early work to the blazing yellows of Arles is deeply moving.</div></div>
+    <div class="day-item"><div class="day-time">2:30 PM</div><div class="day-text">Lunch in De Pijp — wander to the Albert Cuyp Market for Dutch street food: stroopwafels, poffertjes, fresh herring. Eat standing up.</div></div>
+    <div class="day-item"><div class="day-time">4:00 PM</div><div class="day-text">Rent bikes and explore the Jordaan — the most beautiful part of Amsterdam. Narrow canals, 17th-century warehouses, tiny galleries. Get lost slowly.</div></div>
+    <div class="day-item"><div class="day-time">6:00 PM</div><div class="day-text">Bitterballen and jenever at a bruine kroeg. Try Café 't Smalle on Egelantiersgracht — one of Amsterdam's oldest brown cafés, on a perfect canal.</div></div>
+    <div class="day-item"><div class="day-time">8:00 PM</div><div class="day-text">Dinner in Jordaan — dozens of good restaurants. Try Indonesian (rijsttafel is the Dutch-Indonesian feast) at a traditional Indonesian restaurant — a legacy of Dutch colonial history and genuinely wonderful.</div></div>
+  </div>
+  <div class="day-block">
+    <div class="day-label">Day 2 — Anne Frank + Canals</div>
+    <div class="day-item"><div class="day-time">9:00 AM</div><div class="day-text">Anne Frank House — your pre-booked ticket. One of the most significant sites in Europe. The hidden annex where Anne Frank and her family hid for two years is small, preserved, and profound. Give it your full attention.</div></div>
+    <div class="day-item"><div class="day-time">11:00 AM</div><div class="day-text">Walk the Prinsengracht canal — north from the Anne Frank House. Some of Amsterdam's finest 17th-century canal architecture. Cross small bridges, peek into courtyards.</div></div>
+    <div class="day-item"><div class="day-time">1:00 PM</div><div class="day-text">Lunch at Café Winkel 43 — the famous apple pie. Queue for 15 minutes; it's worth it. Sit outside if possible.</div></div>
+    <div class="day-item"><div class="day-time">2:30 PM</div><div class="day-text">Canal boat tour from Centraal Station — 1 hour through the canal ring. Different perspective entirely. Evening or late afternoon tours are best for light.</div></div>
+    <div class="day-item"><div class="day-time">4:30 PM</div><div class="day-text">Free ferry to Amsterdam Noord — takes 3 minutes from behind Centraal. A'DAM Tower for the rooftop swing and lookout. Then explore NDSM wharf (creative district, street art, cafés in old shipyard buildings).</div></div>
+    <div class="day-item"><div class="day-time">8:00 PM</div><div class="day-text">Dinner at Foodhallen or a De Pijp neighborhood restaurant. Lively area, lots of choice, local feel.</div></div>
+  </div>
+  <div class="day-block">
+    <div class="day-label">Day 3 — Day Trip + Vondelpark</div>
+    <div class="day-item"><div class="day-time">9:00 AM</div><div class="day-text">Zaanse Schans — 20 min by train from Centraal to Zaandijk Zaanse Schans. Working windmills, traditional Dutch houses, cheese and clog demonstrations. Go early before tour groups arrive.</div></div>
+    <div class="day-item"><div class="day-time">12:30 PM</div><div class="day-text">Return to Amsterdam. Grab lunch near Centraal before heading south.</div></div>
+    <div class="day-item"><div class="day-time">2:00 PM</div><div class="day-text">Vondelpark — Amsterdam's great park. On sunny days it's an outdoor living room. Rollerbladers, musicians, sunbathers, dogs. Genuinely joyful. The café in the middle (Groot Melkhuis) is excellent.</div></div>
+    <div class="day-item"><div class="day-time">4:00 PM</div><div class="day-text">Van Stapele cookies near Spui — queue up, buy a bag, eat them immediately. Then walk through the historic Begijnhof (hidden 14th-century courtyard, free, extraordinary).</div></div>
+    <div class="day-item"><div class="day-time">6:00 PM</div><div class="day-text">Final evening in the Jordaan — canal-side drink at sunset. Watch the houseboats light up as darkness comes.</div></div>
+    <div class="day-item"><div class="day-time">8:00 PM</div><div class="day-text">Final dinner — Dutch brown café for stamppot (mashed potato and vegetable stew with a sausage) or a full Indonesian rijsttafel. End with jenever.</div></div>
+  </div>
+</div>
+
+<!-- MONEY TIPS -->
+<div class="panel-accent">
+  <div class="section-title-dark">Money Tips</div>
+  <div class="tip-item"><div class="tip-bullet">◆</div><div class="tip-text"><strong>Booking ahead is not optional:</strong> The Anne Frank House, Van Gogh Museum, and Rijksmuseum all sell out weeks or months ahead in summer. The Anne Frank House releases tickets 2 months to the day in advance at 9am Amsterdam time — set an alarm and book immediately.</div></div>
+  <div class="tip-item"><div class="tip-bullet">◆</div><div class="tip-text"><strong>Amsterdam City Card:</strong> Includes free public transport + free entry to 70+ museums for 24–96hrs (€65–130). Worth it if you plan to do 3–4 museum visits — the transport savings alone cover much of the cost.</div></div>
+  <div class="tip-item"><div class="tip-bullet">◆</div><div class="tip-text"><strong>OV-chipkaart:</strong> The Dutch public transport smart card. Get a disposable one at the airport (€2.50) and load credit. Tap in AND out on every tram, metro, and bus — forgetting to tap out charges you the maximum fare.</div></div>
+  <div class="tip-item"><div class="tip-bullet">◆</div><div class="tip-text"><strong>Tipping:</strong> Not mandatory but appreciated. Round up restaurant bills by 5–10% if service was good. Bar tabs: round up to the nearest euro. Unlike the US, 20% tips are not expected and can read as patronizing in a Dutch context.</div></div>
+  <div class="tip-item"><div class="tip-bullet">◆</div><div class="tip-text"><strong>Cash is increasingly unused:</strong> Amsterdam has gone largely cashless. Most places accept contactless card or phone payment. A few market stalls and very old bruine kroegs still prefer cash — carry €20–30 as backup.</div></div>
+  <div class="tip-item"><div class="tip-bullet">◆</div><div class="tip-text"><strong>Bike rental vs. day pass:</strong> A bike rental (~€14/day) costs about the same as a tram day pass. If the weather is good, the bike is always the better choice — faster, more flexible, and far more enjoyable.</div></div>
+  <div class="tip-item"><div class="tip-bullet">◆</div><div class="tip-text"><strong>Haarlem day trip:</strong> A 30-minute €5 train ride gets you to one of the most beautiful small cities in Europe — a medieval market square, the Grote Kerk, Frans Hals Museum, and quiet streets. No crowds, significantly cheaper food and hotels than Amsterdam.</div></div>
+</div>
+
+</div><!-- end page-wrap -->
+<footer>© The Carry-On Co. · <a href="https://carryonco.net">carryonco.net</a> · @tripsbygio<br>Photos for preview only — replace before commercial sale.<br><a href="index.html">← All City Guides</a></footer>
+</body>
+</html>

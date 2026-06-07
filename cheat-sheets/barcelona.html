@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barcelona Travel Cheat Sheet — The Carry-On Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',sans-serif;background:#C60B1E;color:#1a1a1a;min-height:100vh;}
+  .page-wrap{max-width:900px;margin:0 auto;padding:20px;}
+
+  /* HEADER */
+  .header{background:#C60B1E;padding:40px 32px 32px;position:relative;text-align:center;border-bottom:6px solid #FFC400;}
+  .flag-badge{position:absolute;top:20px;right:24px;font-size:40px;}
+  .city-name{font-family:'Anton',sans-serif;font-size:clamp(64px,12vw,110px);color:#fff;line-height:0.9;letter-spacing:-2px;text-shadow:2px 4px 0 rgba(0,0,0,0.3);}
+  .city-tagline{font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:3px;text-transform:uppercase;color:#FFC400;margin:10px 0 6px;}
+  .city-blurb{font-size:15px;color:rgba(255,255,255,0.85);max-width:560px;margin:0 auto;line-height:1.6;}
+
+  /* PANELS */
+  .panel{background:#fff;margin:4px 0;padding:28px 32px;}
+  .panel-gold{background:#FFC400;margin:4px 0;padding:20px 32px;}
+  .section-title{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#C60B1E;border-left:4px solid #C60B1E;padding-left:12px;margin-bottom:16px;}
+  .section-title-dark{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#1a1a1a;border-left:4px solid #1a1a1a;padding-left:12px;margin-bottom:16px;}
+  h2{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:10px;}
+  p{font-size:14px;line-height:1.75;color:#333;margin-bottom:8px;}
+  ul{padding-left:20px;margin-bottom:8px;}
+  li{font-size:14px;line-height:1.75;color:#333;margin-bottom:4px;}
+  strong{color:#1a1a1a;font-weight:600;}
+
+  /* SPECIALTY CALLOUT */
+  .specialty{background:#C60B1E;color:#fff;padding:18px 24px;margin-bottom:16px;border-left:5px solid #FFC400;}
+  .specialty h3{font-family:'Oswald',sans-serif;font-size:16px;letter-spacing:1px;text-transform:uppercase;color:#FFC400;margin-bottom:4px;}
+  .specialty p{color:rgba(255,255,255,0.9);font-size:13px;margin:0;}
+
+  /* FOOD STRIP */
+  .food-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin:12px 0;}
+  .food-strip img{height:100px;min-width:130px;object-fit:cover;border-radius:6px;flex-shrink:0;}
+
+  /* RESTAURANTS */
+  .restaurant{padding:10px 0;border-bottom:1px solid #f0f0f0;}
+  .restaurant:last-child{border-bottom:none;}
+  .restaurant-name{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#1a1a1a;}
+  .restaurant-type{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#C60B1E;margin-bottom:2px;}
+  .restaurant-desc{font-size:13px;color:#555;line-height:1.5;}
+
+  /* TRENDING */
+  .trending-section{background:#111;padding:28px 32px;margin:4px 0;}
+  .trending-title{font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#D4A843;border-left:4px solid #D4A843;padding-left:12px;margin-bottom:16px;}
+  .trending-card{background:#1e1e1e;border:1px solid rgba(212,168,67,0.2);padding:16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;}
+  .trending-card:last-child{margin-bottom:0;}
+  .trending-name{font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;color:#fff;margin-bottom:4px;}
+  .trending-desc{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;}
+  .tiktok-btn{background:#D4A843;color:#111;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 14px;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+
+  /* ATTRACTIONS */
+  .attraction{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid #f5f5f5;}
+  .attraction:last-child{border-bottom:none;}
+  .attraction-name{font-size:14px;font-weight:500;color:#1a1a1a;}
+  .attraction-time{font-size:12px;color:#C60B1E;font-weight:600;white-space:nowrap;margin-left:12px;}
+
+  /* ITINERARY */
+  .day-block{margin-bottom:20px;}
+  .day-label{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:#C60B1E;margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid #C60B1E;}
+  .day-item{display:flex;gap:14px;margin-bottom:10px;}
+  .day-time{font-size:12px;font-weight:600;color:#C60B1E;min-width:52px;padding-top:2px;}
+  .day-text{font-size:13px;color:#333;line-height:1.6;}
+
+  /* TIPS */
+  .tip-item{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+  .tip-bullet{color:#FFC400;font-size:16px;margin-top:1px;flex-shrink:0;}
+  .tip-text{font-size:14px;color:#333;line-height:1.6;}
+
+  /* HOTELS */
+  .hotel{padding:10px 0;border-bottom:1px solid #f0f0f0;}
+  .hotel:last-child{border-bottom:none;}
+  .hotel-name{font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;color:#1a1a1a;}
+  .hotel-stars{color:#FFC400;font-size:13px;}
+  .hotel-area{font-size:12px;color:#C60B1E;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+  .hotel-desc{font-size:13px;color:#555;}
+
+  footer{background:#1a1a1a;color:rgba(255,255,255,0.5);text-align:center;padding:20px;font-size:12px;line-height:1.8;}
+  footer a{color:#D4A843;text-decoration:none;}
+
+  @media(max-width:600px){
+    .header{padding:32px 20px 24px;}
+    .panel,.trending-section{padding:20px 18px;}
+    .trending-card{flex-direction:column;}
+    .tiktok-btn{width:100%;text-align:center;}
+  }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="flag-badge">🇪🇸</div>
+    <div class="city-name">BARCELONA</div>
+    <div class="city-tagline">Your full travel guide so you don't miss anything</div>
+    <p class="city-blurb">Spain's most electric city — Gaudí's genius, Gothic lanes, rooftop bars, Michelin-starred markets, and beaches you didn't expect. This guide covers everything you need to move through it like a local.</p>
+  </div>
+
+  <!-- GETTING THERE -->
+  <div class="panel">
+    <div class="section-title">✈ Getting There Cheap</div>
+    <p><strong>Main airport:</strong> Barcelona El Prat (BCN) — 35 min from city center by Aerobus or Rodalies train (€5.15 train vs €6.75 bus — take the train).</p>
+    <p><strong>Budget airlines:</strong> Ryanair, Vueling, EasyJet, and Wizz Air all serve BCN heavily. From other European cities, expect €20–€60 one way. From North America: fly into Madrid (often cheaper) and take AVE high-speed train (2h40m, €30–80) or connect via London, Paris, or Amsterdam.</p>
+    <p><strong>Booking tip:</strong> Tuesday/Wednesday flights are cheapest. Book 6–8 weeks ahead for summer. Avoid August if possible — the city is packed and prices spike. Late September is the sweet spot: warm, fewer crowds, cheaper.</p>
+    <p><strong>From UK:</strong> Ryanair/EasyJet from London/Manchester from £25. <strong>From US:</strong> Fly into BCN direct (Level, Norwegian, Iberia) or connect via Madrid/Paris. Spring/fall fares regularly hit $400–550 roundtrip.</p>
+  </div>
+
+  <!-- GETTING AROUND -->
+  <div class="panel">
+    <div class="section-title">🚇 Getting Around</div>
+    <p><strong>Metro:</strong> Best way to move. T-Casual card (10 trips, €11.35) covers metro, bus, and Rodalies train. Single tickets €2.40 — never buy single tickets.</p>
+    <p><strong>Walking:</strong> The Eixample grid and Gothic Quarter are extremely walkable. Barceloneta to Gothic Quarter is 20 min on foot along the waterfront.</p>
+    <p><strong>Bus:</strong> Covers areas the metro misses (Montjuïc, upper Gràcia). Hop-on-hop-off tourist bus is a waste — take public bus H10 or V17 instead for €2.40.</p>
+    <p><strong>Taxi/Bolt:</strong> Bolt app is cheaper than official taxis. Airport to center ≈€25–35. Use for late nights or luggage days.</p>
+    <p><strong>Avoid:</strong> Driving. Parking is nearly impossible and expensive. City is not designed for cars.</p>
+  </div>
+
+  <!-- WHERE TO STAY -->
+  <div class="panel">
+    <div class="section-title">🏨 Where to Stay</div>
+    <div class="hotel">
+      <div class="hotel-name">Hotel Arts Barcelona</div>
+      <div class="hotel-stars">★★★★★</div>
+      <div class="hotel-area">Barceloneta / Port Olímpic</div>
+      <div class="hotel-desc">Luxury Ritz-Carlton property with iconic tower views, rooftop pool, and direct beach access. The best address in the city for splurging.</div>
+    </div>
+    <div class="hotel">
+      <div class="hotel-name">Praktik Rambla</div>
+      <div class="hotel-stars">★★★★</div>
+      <div class="hotel-area">Eixample / Las Ramblas</div>
+      <div class="hotel-desc">Excellent value 4-star in a modernista building. Perfect central location, stylish rooms, great breakfast. Book well ahead.</div>
+    </div>
+    <div class="hotel">
+      <div class="hotel-name">H10 Metropolitan</div>
+      <div class="hotel-stars">★★★★</div>
+      <div class="hotel-area">Eixample</div>
+      <div class="hotel-desc">Reliable, well-located, rooftop terrace. Mid-range 4-star that punches above its price. Great for first-timers.</div>
+    </div>
+    <div class="hotel">
+      <div class="hotel-name">💡 Budget Pick: Soho House Barcelona / St Christopher's Inn</div>
+      <div class="hotel-area">Gothic Quarter / El Born</div>
+      <div class="hotel-desc">For budget travelers: Stay in El Born or the Gothic Quarter for the best walkability. Avoid chain hotels on Las Ramblas — overpriced and noisy.</div>
+    </div>
+  </div>
+
+  <!-- WHERE TO EAT -->
+  <div class="panel">
+    <div class="section-title">🍽 Where to Eat</div>
+    <div class="specialty">
+      <h3>🥖 Local Specialty: Pa amb Tomàquet</h3>
+      <p>Bread rubbed with fresh tomato and olive oil — the foundation of Catalan cuisine. Every meal starts here. Order it with jamón ibérico and you've just had the best €4 meal of your life.</p>
+    </div>
+    <div class="food-strip">
+      <img src="https://www.thecrazytourist.com/wp-content/uploads/2019/07/ccimage-shutterstock_660748135.jpg" alt="Paella" onerror="this.style.display='none'">
+      <img src="https://www.thecrazytourist.com/wp-content/uploads/2020/04/ccimage-shutterstock_1250988982.jpg" alt="Tapas" onerror="this.style.display='none'">
+      <img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=200&q=80" alt="Croquetas" onerror="this.style.display='none'">
+      <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=200&q=80" alt="Crema catalana" onerror="this.style.display='none'">
+    </div>
+    <div class="restaurant">
+      <div class="restaurant-type">Breakfast / Coffee</div>
+      <div class="restaurant-name">Federal Café</div>
+      <div class="restaurant-desc">Australian-influenced brunch in Sant Antoni. Avocado toast done right, great flat whites. Queue out the door on weekends — arrive early.</div>
+    </div>
+    <div class="restaurant">
+      <div class="restaurant-type">Tapas / Market</div>
+      <div class="restaurant-name">La Boqueria (Mercat de Sant Josep)</div>
+      <div class="restaurant-desc">Skip the tourist-trap stalls at the entrance — walk to the back for the real vendors. Fresh fruit, jamón, oysters, and local produce at fair prices.</div>
+    </div>
+    <div class="restaurant">
+      <div class="restaurant-type">Tapas / Casual</div>
+      <div class="restaurant-name">Bar del Pla</div>
+      <div class="restaurant-desc">El Born classic. Always packed, great croquetas and patatas bravas, reasonable prices. No reservations — show up or wait.</div>
+    </div>
+    <div class="restaurant">
+      <div class="restaurant-type">Mid-Range</div>
+      <div class="restaurant-name">Cervecería Catalana</div>
+      <div class="restaurant-desc">Eixample institution. Excellent pintxos and tapas, lively atmosphere, fair prices. Queue outside — worth it.</div>
+    </div>
+    <div class="restaurant">
+      <div class="restaurant-type">Mid-Range / Seafood</div>
+      <div class="restaurant-name">La Mar Salada</div>
+      <div class="restaurant-desc">Near Barceloneta, excellent paella and fresh seafood without the tourist beach-strip markup. Book ahead.</div>
+    </div>
+    <div class="restaurant">
+      <div class="restaurant-type">Splurge</div>
+      <div class="restaurant-name">Tickets (Albert Adrià)</div>
+      <div class="restaurant-desc">Avant-garde tapas bar from the team behind elBulli. Book months in advance online. One of the best dining experiences in Europe.</div>
+    </div>
+    <div class="restaurant">
+      <div class="restaurant-type">Splurge / Wine Bar</div>
+      <div class="restaurant-name">Bar Calders</div>
+      <div class="restaurant-desc">Sant Antoni neighborhood gem. Incredible natural wines, killer vermouth, and the kind of atmosphere that keeps you there for 4 hours.</div>
+    </div>
+  </div>
+
+  <!-- TRENDING -->
+  <div class="trending-section">
+    <div class="trending-title">🔥 Trending Restaurants</div>
+    <div class="trending-card">
+      <div>
+        <div class="trending-name">Gloria Osteria</div>
+        <div class="trending-desc">Modern Italian in the Gothic Quarter with a serious wine list and beautiful pasta. Massive on Instagram — book online or queue at opening.</div>
+      </div>
+      <a class="tiktok-btn" href="https://www.tiktok.com/search?q=Gloria+Osteria+Barcelona" target="_blank">▶ TikTok</a>
+    </div>
+    <div class="trending-card">
+      <div>
+        <div class="trending-name">Bar Cañete</div>
+        <div class="trending-desc">Legendary tapas bar near La Rambla. Counter seating, classic Catalan tapas executed perfectly. Always packed — go at lunch to avoid the worst queues.</div>
+      </div>
+      <a class="tiktok-btn" href="https://www.tiktok.com/search?q=Bar+Ca%C3%B1ete+Barcelona" target="_blank">▶ TikTok</a>
+    </div>
+    <div class="trending-card">
+      <div>
+        <div class="trending-name">Parking Pizza</div>
+        <div class="trending-desc">Wood-fired Neapolitan pizza in Eixample. Cult following, incredible dough, and a natural wine list that rivals anywhere in the city.</div>
+      </div>
+      <a class="tiktok-btn" href="https://www.tiktok.com/search?q=Parking+Pizza+Barcelona" target="_blank">▶ TikTok</a>
+    </div>
+    <div class="trending-card">
+      <div>
+        <div class="trending-name">Nine Barcelona</div>
+        <div class="trending-desc">Rooftop cocktail bar with stunning 360° city views. Small plates, excellent cocktails, stunning sunset spot. Book the rooftop table.</div>
+      </div>
+      <a class="tiktok-btn" href="https://www.tiktok.com/search?q=Nine+Barcelona+rooftop" target="_blank">▶ TikTok</a>
+    </div>
+  </div>
+
+  <!-- LOCAL RHYTHM -->
+  <div class="panel-gold">
+    <div class="section-title-dark">🕐 Local Rhythm</div>
+    <p><strong>Lunch:</strong> 2–4pm is lunch time. Restaurants serving the menú del día (€12–15 for 3 courses + wine) fill fast between 2 and 3pm. <strong>Dinner:</strong> Don't even bother arriving before 9pm — most locals eat at 10pm.</p>
+    <p><strong>Siesta:</strong> Some smaller shops close 2–5pm, especially outside tourist areas. Plan museum visits or beaches during this window.</p>
+    <p><strong>Tipping:</strong> Round up or leave 5–10% at sit-down restaurants. Not expected at bars or counters. Never tip at La Boqueria market stalls.</p>
+    <p><strong>Las Ramblas:</strong> Walk it once for the experience — don't eat there, don't use ATMs there, and hold your phone and wallet tight. It's the city's #1 pickpocket zone.</p>
+  </div>
+
+  <!-- WHAT TO DO -->
+  <div class="panel">
+    <div class="section-title">📍 What To Do</div>
+    <div class="attraction"><span class="attraction-name">Sagrada Família (Gaudí's masterpiece cathedral)</span><span class="attraction-time">2–3 hrs ⚠️ Book ahead</span></div>
+    <div class="attraction"><span class="attraction-name">Park Güell (mosaic terraces + city views)</span><span class="attraction-time">2 hrs ⚠️ Timed entry</span></div>
+    <div class="attraction"><span class="attraction-name">Casa Batlló (Gaudí façade, interactive interior)</span><span class="attraction-time">1.5 hrs</span></div>
+    <div class="attraction"><span class="attraction-name">Casa Milà / La Pedrera (rooftop warriors)</span><span class="attraction-time">1.5 hrs</span></div>
+    <div class="attraction"><span class="attraction-name">Gothic Quarter (wander the medieval lanes)</span><span class="attraction-time">2–3 hrs free</span></div>
+    <div class="attraction"><span class="attraction-name">La Boqueria Market (food, produce, energy)</span><span class="attraction-time">1 hr free</span></div>
+    <div class="attraction"><span class="attraction-name">Barceloneta Beach (Mediterranean, May–Oct)</span><span class="attraction-time">Half day free</span></div>
+    <div class="attraction"><span class="attraction-name">MNAC — National Art Museum (Romanesque art)</span><span class="attraction-time">2 hrs</span></div>
+    <div class="attraction"><span class="attraction-name">Picasso Museum (world's best Picasso collection)</span><span class="attraction-time">1.5 hrs</span></div>
+    <div class="attraction"><span class="attraction-name">Palau de la Música Catalana (concert hall, UNESCO)</span><span class="attraction-time">1 hr guided</span></div>
+    <div class="attraction"><span class="attraction-name">Montjuïc Castle + Cable Car</span><span class="attraction-time">2 hrs</span></div>
+    <div class="attraction"><span class="attraction-name">El Born neighborhood (boutiques + art galleries)</span><span class="attraction-time">1.5 hrs free</span></div>
+    <div class="attraction"><span class="attraction-name">Gràcia neighborhood (local, artsy, less tourist)</span><span class="attraction-time">1.5 hrs free</span></div>
+    <div class="attraction"><span class="attraction-name">Camp Nou Stadium tour</span><span class="attraction-time">2 hrs</span></div>
+  </div>
+
+  <!-- 3-DAY ITINERARY -->
+  <div class="panel">
+    <div class="section-title">🗓 3-Day Itinerary</div>
+
+    <div class="day-block">
+      <div class="day-label">DAY 1 — Gaudí & Gothic</div>
+      <div class="day-item"><span class="day-time">8:30am</span><div class="day-text"><strong>Sagrada Família</strong> — go at opening, before the tour buses. Pre-booked tower ticket essential. Budget 2.5 hours.</div></div>
+      <div class="day-item"><span class="day-time">11:30am</span><div class="day-text">Walk to <strong>Casa Batlló</strong> via Passeig de Gràcia — see the Block of Discord (Batlló, Amatller, Lleó Morera).</div></div>
+      <div class="day-item"><span class="day-time">1:30pm</span><div class="day-text"><strong>Lunch</strong> at Cervecería Catalana — menú del día, great value. Arrive before 2pm.</div></div>
+      <div class="day-item"><span class="day-time">3:30pm</span><div class="day-text">Walk to the <strong>Gothic Quarter</strong>. Get lost deliberately. Find Plaça de Sant Felip Neri, Barcelona Cathedral, Roman ruins.</div></div>
+      <div class="day-item"><span class="day-time">7:00pm</span><div class="day-text"><strong>El Born</strong> — aperitivo at Bar del Pla, then explore the neighborhood's galleries and boutiques.</div></div>
+      <div class="day-item"><span class="day-time">9:30pm</span><div class="day-text"><strong>Dinner</strong> at Bar Calders or Parking Pizza — book ahead or arrive exactly at opening.</div></div>
+    </div>
+
+    <div class="day-block">
+      <div class="day-label">DAY 2 — Markets, Beach & Views</div>
+      <div class="day-item"><span class="day-time">9:00am</span><div class="day-text"><strong>La Boqueria Market</strong> — fresh fruit, jamón, fresh-squeezed juice. Go before 11am for the best experience and fewer crowds.</div></div>
+      <div class="day-item"><span class="day-time">10:30am</span><div class="day-text">Walk Las Ramblas to the <strong>waterfront</strong>, then along the coast to <strong>Barceloneta Beach</strong>. Morning swim if weather allows.</div></div>
+      <div class="day-item"><span class="day-time">1:00pm</span><div class="day-text"><strong>Lunch</strong> at La Mar Salada — seafood near the beach, away from the tourist trap chiringuitos.</div></div>
+      <div class="day-item"><span class="day-time">3:30pm</span><div class="day-text"><strong>Park Güell</strong> — take metro to Lesseps, 15 min walk uphill. Book timed entry. Stay for the views over the city.</div></div>
+      <div class="day-item"><span class="day-time">6:30pm</span><div class="day-text">Head to <strong>Gràcia</strong> neighborhood — locals' Barcelona, great for a vermouth at a terrace bar.</div></div>
+      <div class="day-item"><span class="day-time">9:00pm</span><div class="day-text"><strong>Dinner</strong> — Bar Cañete for authentic tapas or splurge at Tickets (book months ahead).</div></div>
+    </div>
+
+    <div class="day-block">
+      <div class="day-label">DAY 3 — Art, Palau & Montjuïc</div>
+      <div class="day-item"><span class="day-time">9:30am</span><div class="day-text"><strong>Picasso Museum</strong> — book online. One of the world's great single-artist collections. 90 minutes minimum.</div></div>
+      <div class="day-item"><span class="day-time">11:30am</span><div class="day-text"><strong>Palau de la Música</strong> — guided tour of this UNESCO concert hall. Stunning Modernista interior.</div></div>
+      <div class="day-item"><span class="day-time">1:30pm</span><div class="day-text"><strong>Lunch</strong> at Federal Café or any of the smaller places in Sant Antoni / Eixample.</div></div>
+      <div class="day-item"><span class="day-time">3:30pm</span><div class="day-text"><strong>Montjuïc</strong> — cable car or funicular up. MNAC museum, views of the port, Montjuïc Castle. Best city panorama.</div></div>
+      <div class="day-item"><span class="day-time">7:00pm</span><div class="day-text">Sunset drinks at <strong>Nine Barcelona</strong> rooftop — book a table, worth every cent for the views.</div></div>
+      <div class="day-item"><span class="day-time">9:30pm</span><div class="day-text">Final dinner — Gloria Osteria for something special, or back to a neighborhood favorite.</div></div>
+    </div>
+  </div>
+
+  <!-- MONEY TIPS -->
+  <div class="panel">
+    <div class="section-title">💡 Money-Saving Tips</div>
+    <div class="tip-item"><span class="tip-bullet">✦</span><div class="tip-text"><strong>Menú del día</strong> — every sit-down restaurant offers a 3-course lunch with wine for €12–15. The best value meal in Spain. Never pay dinner prices for lunch.</div></div>
+    <div class="tip-item"><span class="tip-bullet">✦</span><div class="tip-text"><strong>T-Casual metro card</strong> — 10 trips for €11.35 vs €2.40 each. Buy at any metro station machine. Essential.</div></div>
+    <div class="tip-item"><span class="tip-bullet">✦</span><div class="tip-text"><strong>Museums free on Sundays</strong> — MNAC, Picasso Museum, and others offer free entry Sunday afternoons (3pm+). Check each museum's schedule.</div></div>
+    <div class="tip-item"><span class="tip-bullet">✦</span><div class="tip-text"><strong>Avoid eating on Las Ramblas</strong> — restaurants there charge 40–60% more and are often mediocre. One street back = half the price, twice the quality.</div></div>
+    <div class="tip-item"><span class="tip-bullet">✦</span><div class="tip-text"><strong>Book Sagrada Família at least 2 weeks ahead</strong> — day-of tickets sell out by 9am. Tower tickets sell out weeks ahead. Online booking is always cheaper.</div></div>
+    <div class="tip-item"><span class="tip-bullet">✦</span><div class="tip-text"><strong>Supermarkets for breakfast</strong> — Mercadona or Lidl for fresh bread, cheese, fruit, and coffee to go. €2–3 vs €8+ at a café.</div></div>
+    <div class="tip-item"><span class="tip-bullet">✦</span><div class="tip-text"><strong>Bolt for ride-sharing</strong> — consistently cheaper than official Barcelona taxis by 20–30%.</div></div>
+    <div class="tip-item"><span class="tip-bullet">✦</span><div class="tip-text"><strong>Travel in May or October</strong> — warm weather, 40% cheaper accommodation, and you can actually see the attractions without queueing 3 hours.</div></div>
+  </div>
+
+</div>
+<footer>
+  © The Carry-On Co. · <a href="https://carryonco.net">carryonco.net</a> · @tripsbygio<br>
+  Photos for preview purposes only — replace with licensed images before commercial sale.<br>
+  <a href="https://carryonco.net">← Back to The Carry-On Co.</a> | <a href="index.html">← All City Guides</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dublin Travel Cheat Sheet — The Carry-On Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #00693E;
+    --accent: #FF6B00;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --text-dark: #1a1a1a;
+    --text-mid: #444;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--bg);
+    border-bottom: 6px solid var(--accent);
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+
+  .brand-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .flag {
+    font-size: 52px;
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .city-name {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(72px, 12vw, 120px);
+    color: var(--white);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .country-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  .header-blurb {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    max-width: 640px;
+    margin: 20px auto 0;
+    line-height: 1.7;
+  }
+
+  .header-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .meta-pill {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 999px;
+    padding: 6px 18px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 700px) {
+    main { grid-template-columns: 1fr; }
+    .full-width { grid-column: 1; }
+  }
+
+  .full-width { grid-column: 1 / -1; }
+
+  .panel {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .panel-header {
+    background: var(--bg);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .panel-header .section-icon { font-size: 18px; }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+  }
+
+  .panel-body { padding: 20px; }
+
+  .panel-accent .panel-header { background: var(--accent); }
+  .panel-accent .section-title { color: var(--white); border-left-color: rgba(255,255,255,0.5); }
+
+  .attraction-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .attraction-item:last-child { border-bottom: none; }
+
+  .attraction-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .attraction-info { flex: 1; }
+
+  .attraction-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-dark);
+    line-height: 1.2;
+  }
+
+  .attraction-time {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--bg);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  .attraction-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #e53935;
+    font-weight: 500;
+    margin-top: 3px;
+  }
+
+  .day-block { margin-bottom: 18px; }
+  .day-block:last-child { margin-bottom: 0; }
+
+  .day-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bg);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .day-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+  }
+
+  .day-item {
+    display: flex;
+    gap: 10px;
+    padding: 5px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.4;
+  }
+
+  .day-time {
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--bg);
+    min-width: 52px;
+    padding-top: 1px;
+  }
+
+  .food-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .food-item {
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .food-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-dark);
+  }
+
+  .food-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-mid);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  .tip-item {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+  .tip-item:last-child { border-bottom: none; }
+
+  .tip-bullet {
+    color: var(--accent);
+    font-size: 18px;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  .hotel-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .hotel-item:last-child { border-bottom: none; }
+
+  .hotel-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-dark);
+  }
+
+  .hotel-stars { color: var(--accent); font-size: 12px; letter-spacing: 1px; }
+
+  .hotel-area {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bg);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  .hotel-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: var(--text-mid);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  .restaurant-type {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bg);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  .trending-section {
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    grid-column: 1 / -1;
+  }
+
+  .trending-header {
+    background: #111;
+    border-bottom: 3px solid #D4A843;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .trending-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #D4A843;
+  }
+
+  .trending-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-left: auto;
+  }
+
+  .trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .trending-item {
+    padding: 20px 24px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .trending-item:nth-child(2n) { border-right: none; }
+
+  .trending-rank {
+    font-family: 'Anton', sans-serif;
+    font-size: 36px;
+    color: rgba(212,168,67,0.2);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .trending-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .trending-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+
+  .tiktok-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #010101, #1a1a2e);
+    border: 1px solid rgba(212,168,67,0.4);
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #D4A843;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+  }
+
+  .logistics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .logistics-item {
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .logistics-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--bg);
+    margin-bottom: 4px;
+  }
+
+  .logistics-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    color: var(--text-dark);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  footer {
+    background: var(--bg);
+    border-top: 3px solid var(--accent);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Anton', sans-serif;
+    font-size: 22px;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  .footer-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+
+  .footer-accent { color: var(--accent); }
+
+  /* Budget badge */
+  .budget-badge {
+    display: inline-block;
+    background: rgba(255,107,0,0.12);
+    border: 1px solid rgba(255,107,0,0.3);
+    color: #c75200;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand-label">The Carry-On Co. // Travel Cheat Sheet</div>
+  <span class="flag">🇮🇪</span>
+  <div class="city-name">Dublin</div>
+  <div class="country-name">Ireland</div>
+  <p class="header-blurb">The craic is real. Dublin's pub culture, literary heritage, and warmth of its people make it one of the most welcoming cities in Europe. Yes, it's expensive — but done right, it's worth every cent.</p>
+  <div class="header-meta">
+    <span class="meta-pill">☁ Best: May–Sep</span>
+    <span class="meta-pill">💶 Currency: Euro (€)</span>
+    <span class="meta-pill">🌡 Summer: 16–20°C</span>
+    <span class="meta-pill">✈ Airport: DUB</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- TRENDING -->
+  <div class="trending-section full-width">
+    <div class="trending-header">
+      <span style="font-size:20px;">🔥</span>
+      <span class="trending-title">Trending on TikTok & Instagram</span>
+      <span class="trending-sub">Verified picks — not just hype</span>
+    </div>
+    <div class="trending-grid">
+      <div class="trending-item">
+        <div class="trending-rank">01</div>
+        <div class="trending-name">Bunsen</div>
+        <div class="trending-desc">Minimalist burger bar with a short, focused menu. Just burgers done perfectly. No frills, no fuss, a genuine cult following. The Nassau Street location is the original.</div>
+        <a class="tiktok-btn" href="https://www.tiktok.com/search?q=bunsen+burger+dublin" target="_blank">▶ TikTok #BunsenDublin</a>
+      </div>
+      <div class="trending-item">
+        <div class="trending-rank">02</div>
+        <div class="trending-name">The Woollen Mills</div>
+        <div class="trending-desc">Converted historic building right on Ha'penny Bridge. One of Dublin's best brunch spots — lovely space, local food, great service. Queue on weekends but worth it.</div>
+        <a class="tiktok-btn" href="https://www.tiktok.com/search?q=woollen+mills+dublin" target="_blank">▶ TikTok #WoollenMills</a>
+      </div>
+      <div class="trending-item">
+        <div class="trending-rank">03</div>
+        <div class="trending-name">Cobblestone</div>
+        <div class="trending-desc">Authentic traditional music pub in Smithfield. Not touristy — real session music, real locals, proper pints. The antithesis of Temple Bar. Show up after 9pm on weekends.</div>
+        <a class="tiktok-btn" href="https://www.tiktok.com/search?q=cobblestone+pub+dublin" target="_blank">▶ TikTok #CobblestoneSession</a>
+      </div>
+      <div class="trending-item">
+        <div class="trending-rank">04</div>
+        <div class="trending-name">Glovers Alley</div>
+        <div class="trending-desc">Andy McFadden's Michelin-starred restaurant in the Fitzwilliam Hotel. Creative Irish fine dining at its best — seasonal, local, and genuinely exciting. The city's top tasting menu.</div>
+        <a class="tiktok-btn" href="https://www.tiktok.com/search?q=glovers+alley+dublin" target="_blank">▶ TikTok #GloversAlley</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ATTRACTIONS -->
+  <div class="panel full-width">
+    <div class="panel-header">
+      <span class="section-icon">🏛</span>
+      <span class="section-title">Top Attractions</span>
+    </div>
+    <div class="panel-body">
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0 24px;">
+        <div>
+          <div class="attraction-item">
+            <span class="attraction-icon">📖</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Trinity College + Book of Kells</div>
+              <div class="attraction-time">1.5 hrs</div>
+              <div class="attraction-note">⚠ Book tickets online — always sold out</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🏰</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Dublin Castle</div>
+              <div class="attraction-time">1.5 hrs · State Apartments are stunning</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">⛪</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Christ Church Cathedral</div>
+              <div class="attraction-time">1 hr · 1000-year-old Viking church</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">⛪</span>
+            <div class="attraction-info">
+              <div class="attraction-name">St Patrick's Cathedral</div>
+              <div class="attraction-time">1 hr · Jonathan Swift's burial place</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🍺</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Guinness Storehouse</div>
+              <div class="attraction-time">2–3 hrs</div>
+              <div class="attraction-note">⚠ Book online — cheaper + skip queue</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🌙</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Temple Bar Area</div>
+              <div class="attraction-time">Evening · Touristy but lively</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🔒</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Kilmainham Gaol</div>
+              <div class="attraction-time">1.5 hrs · Powerful Irish history</div>
+              <div class="attraction-note">⚠ Book well in advance — fills up fast</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🦌</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Phoenix Park</div>
+              <div class="attraction-time">2 hrs · Europe's largest urban park</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🏛</span>
+            <div class="attraction-info">
+              <div class="attraction-name">National Museum of Ireland</div>
+              <div class="attraction-time">2 hrs · Free! Celtic gold + Viking artefacts</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🎭</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Little Museum of Dublin</div>
+              <div class="attraction-time">1 hr · Charming, witty, essential</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">⛵</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Howth Fishing Village</div>
+              <div class="attraction-time">Day trip · 30 min DART train</div>
+            </div>
+          </div>
+          <div class="attraction-item">
+            <span class="attraction-icon">🛍</span>
+            <div class="attraction-info">
+              <div class="attraction-name">Grafton Street</div>
+              <div class="attraction-time">1–2 hrs · Best street performers in Europe</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-DAY ITINERARY -->
+  <div class="panel full-width">
+    <div class="panel-header">
+      <span class="section-icon">📅</span>
+      <span class="section-title">3-Day Itinerary</span>
+    </div>
+    <div class="panel-body">
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 0 32px;">
+        <div class="day-block">
+          <div class="day-label">Day 1 — City Centre</div>
+          <div class="day-item"><span class="day-time">9:00am</span>Trinity College + Book of Kells (pre-booked)</div>
+          <div class="day-item"><span class="day-time">11:00am</span>Grafton Street + St Stephen's Green</div>
+          <div class="day-item"><span class="day-time">1:00pm</span>Brunch at The Woollen Mills on Ha'penny Bridge</div>
+          <div class="day-item"><span class="day-time">3:00pm</span>Dublin Castle + Chester Beatty Library (free)</div>
+          <div class="day-item"><span class="day-time">5:00pm</span>Christ Church Cathedral</div>
+          <div class="day-item"><span class="day-time">7:00pm</span>Dinner at Bunsen burger</div>
+          <div class="day-item"><span class="day-time">9:00pm</span>Traditional session at Cobblestone, Smithfield</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 2 — History + Guinness</div>
+          <div class="day-item"><span class="day-time">9:30am</span>Kilmainham Gaol tour (pre-booked)</div>
+          <div class="day-item"><span class="day-time">11:30am</span>Phoenix Park — deer spotting</div>
+          <div class="day-item"><span class="day-time">1:30pm</span>Guinness Storehouse (pre-booked)</div>
+          <div class="day-item"><span class="day-time">4:00pm</span>Pint at a local — avoid Temple Bar prices</div>
+          <div class="day-item"><span class="day-time">5:30pm</span>National Museum of Ireland (free, closes 5pm Tue–Sat)</div>
+          <div class="day-item"><span class="day-time">7:30pm</span>Dinner in the Georgian Quarter</div>
+          <div class="day-item"><span class="day-time">9:30pm</span>Temple Bar evening (once, for the experience)</div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 3 — Howth Day Trip</div>
+          <div class="day-item"><span class="day-time">9:30am</span>DART from Connolly to Howth (30 min)</div>
+          <div class="day-item"><span class="day-time">10:30am</span>Cliff walk around Howth Head (2 hrs)</div>
+          <div class="day-item"><span class="day-time">1:00pm</span>Fresh seafood lunch on Howth pier</div>
+          <div class="day-item"><span class="day-time">3:00pm</span>DART back — stop at Dalkey on the way</div>
+          <div class="day-item"><span class="day-time">5:00pm</span>Little Museum of Dublin</div>
+          <div class="day-item"><span class="day-time">7:00pm</span>St Patrick's Cathedral evening visit</div>
+          <div class="day-item"><span class="day-time">8:30pm</span>Splurge farewell dinner at Glovers Alley ⭐</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOD -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="section-icon">🍀</span>
+      <span class="section-title">What to Eat + Drink</span>
+    </div>
+    <div class="panel-body">
+      <div class="food-grid">
+        <div class="food-item">
+          <div class="food-name">Full Irish Breakfast</div>
+          <div class="food-desc">Sausages, rashers (bacon), black pudding, white pudding, eggs, grilled tomato, and soda bread. Non-negotiable.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Irish Stew</div>
+          <div class="food-desc">Lamb or mutton with potatoes, carrots, and onions. Slow-cooked comfort food. Find it in a proper old pub.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Boxty</div>
+          <div class="food-desc">Traditional Irish potato pancake — half grated raw potato, half mashed. Served with smoked salmon or beef.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Colcannon</div>
+          <div class="food-desc">Mashed potato with kale or cabbage and lashings of butter. Soul food at its most Irish.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Guinness Stout</div>
+          <div class="food-desc">A good pint of Guinness takes 119.5 seconds to pour. Taste the difference here versus abroad.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Irish Whiskey</div>
+          <div class="food-desc">Jameson, Bushmills, Redbreast, Teeling. Ireland produces world-class whiskey — try flights at The Teeling Distillery.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Smoked Salmon</div>
+          <div class="food-desc">Wild Irish smoked salmon on brown soda bread with cream cheese. One of Ireland's finest simple pleasures.</div>
+        </div>
+        <div class="food-item">
+          <div class="food-name">Soda Bread</div>
+          <div class="food-desc">Dense, slightly tangy Irish bread leavened with baking soda. Order it toasted with butter at every breakfast.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCAL TIPS -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="section-icon">☘️</span>
+      <span class="section-title">Local Tips</span>
+    </div>
+    <div class="panel-body">
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Dublin is expensive. Budget ~€60–80/day for food and activities. Book museums and attractions online to save on entry prices.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Book Kilmainham Gaol and Book of Kells weeks in advance. Both are consistently sold out and cannot be easily walked into.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Temple Bar is fine for one evening but massively overpriced. Drinks in nearby pubs on Dame Street cost half as much.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Cobblestone in Smithfield is the real deal for traditional music. Show up after 9pm on Friday or Saturday. Free, no tourist trap.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>The DART coastal train is one of Europe's best urban rail journeys. Get a Leap Card for cheap travel. Howth is a must.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Pack a waterproof layer — always. Irish weather changes every 30 minutes regardless of season. This is non-negotiable advice.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>"The craic" means good fun and lively atmosphere. Locals will tell you the craic was mighty if a pub night went well.</span>
+      </div>
+      <div class="tip-item">
+        <span class="tip-bullet">◆</span>
+        <span>Guinness genuinely tastes better in Dublin. The freshness and pour technique differ significantly from exports. Savour it.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOTELS -->
+  <div class="panel">
+    <div class="panel-header">
+      <span class="section-icon">🏨</span>
+      <span class="section-title">Where to Stay</span>
+    </div>
+    <div class="panel-body">
+      <div class="hotel-item">
+        <div class="hotel-name">The Merrion <span class="hotel-stars">★★★★★</span></div>
+        <div class="hotel-area">Georgian Dublin, D2</div>
+        <div class="hotel-note">Four restored Georgian townhouses with an exceptional art collection. Ireland's finest hotel. Steps from Glovers Alley, National Gallery, and Grafton Street.</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">The Shelbourne <span class="hotel-stars">★★★★★</span></div>
+        <div class="hotel-area">St Stephen's Green</div>
+        <div class="hotel-note">Dublin institution since 1824. The Irish Constitution was drafted here. Lord Mayor's Lounge is legendary for afternoon tea. Classic Dublin grandeur.</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">The Dean Dublin <span class="hotel-stars">★★★★</span></div>
+        <div class="hotel-area">Harcourt Street / D2</div>
+        <div class="hotel-note">Hip, design-forward boutique hotel with rooftop bar. Popular with younger travelers. Excellent central location, great value for Dublin's luxury tier.</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Budget Tip</div>
+        <div class="hotel-area">Rathmines or Portobello</div>
+        <div class="hotel-note">Stay south of the Liffey in Rathmines or Portobello for good apartments and B&Bs at lower prices. 15-min bus to city center.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGISTICS -->
+  <div class="panel panel-accent">
+    <div class="panel-header">
+      <span class="section-icon">🗺</span>
+      <span class="section-title">Getting Around</span>
+    </div>
+    <div class="panel-body">
+      <div class="logistics-grid">
+        <div class="logistics-item">
+          <div class="logistics-label">Airport → Center</div>
+          <div class="logistics-value">Aircoach or 747 bus to city center (~€8, 30–45 min). Taxi ~€30–40.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">Leap Card</div>
+          <div class="logistics-value">Contactless travel card for bus, DART, Luas tram. Saves 30% vs cash fares. Get at airport.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">Walking</div>
+          <div class="logistics-value">City center is very walkable. Trinity → St Patrick's → Guinness Storehouse all on foot.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">DART Train</div>
+          <div class="logistics-value">Coastal rail north to Howth, south to Bray. Scenic, cheap, essential for day trips.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">Luas Tram</div>
+          <div class="logistics-value">Red + Green lines cross the city. Red line good for Kilmainham and Smithfield area.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="logistics-label">Language</div>
+          <div class="logistics-value">English (and Irish/Gaeilge on signs). Learn: "Sláinte!" (cheers!) for maximum pub credibility.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">The Carry-On <span class="footer-accent">Co.</span></div>
+  <div class="footer-tagline">Smart travel intelligence for carry-on travelers · thecarryonco.com</div>
+</footer>
+
+</body>
+</html>

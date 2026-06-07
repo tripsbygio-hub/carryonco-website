@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Europe Decoded — The Carry-On Co. City Cheat Sheets</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a090f;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: #0a090f;
+    padding: 80px 40px 70px;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(212,168,67,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .brand-line {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 28px;
+  }
+  .hero-headline {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(64px, 12vw, 120px);
+    line-height: 0.92;
+    letter-spacing: -1px;
+    color: #D4A843;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(16px, 2.5vw, 20px);
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    margin: 0 auto 36px;
+  }
+  .stat-chips {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .chip {
+    border: 1.5px solid #D4A843;
+    color: #D4A843;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 2px;
+  }
+
+  /* ─── CITY GRID ─── */
+  .grid-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 64px 32px;
+  }
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #D4A843;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .region-group {
+    margin-bottom: 48px;
+  }
+  .region-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .region-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #1e1e1e;
+  }
+  .city-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  @media(max-width: 900px){ .city-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media(max-width: 640px){ .city-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .city-card {
+    background: #1a1a1a;
+    border: 1px solid #242424;
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.2s, transform 0.15s, background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .city-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: #D4A843;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s;
+  }
+  .city-card:hover {
+    border-color: #D4A843;
+    background: #1f1f1f;
+    transform: translateY(-2px);
+  }
+  .city-card:hover::before {
+    transform: scaleX(1);
+  }
+  .city-card-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.1;
+  }
+  .city-card-country {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #D4A843;
+    margin-bottom: 14px;
+  }
+  .city-card-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .city-card:hover .city-card-link {
+    color: #D4A843;
+  }
+
+  /* Coming soon card */
+  .city-card.coming-soon {
+    opacity: 0.45;
+    cursor: default;
+    pointer-events: none;
+  }
+  .city-card.coming-soon .city-card-link {
+    color: rgba(255,255,255,0.2);
+  }
+  .coming-badge {
+    display: inline-block;
+    background: #242424;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-bottom: 4px;
+  }
+
+  /* ─── HOW TO USE ─── */
+  .how-section {
+    background: #111;
+    border-top: 1px solid #1e1e1e;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 64px 32px;
+  }
+  .how-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .how-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 38px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .how-sub {
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+  .how-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media(max-width: 640px){ .how-cards { grid-template-columns: 1fr; } }
+  .how-card {
+    background: #171717;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .how-number {
+    font-family: 'Anton', sans-serif;
+    font-size: 48px;
+    color: #D4A843;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .how-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .how-card p {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+  }
+
+  /* ─── FOOTER CTA ─── */
+  .cta-section {
+    padding: 72px 32px;
+    text-align: center;
+    background: #0a090f;
+  }
+  .cta-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+  }
+  .cta-headline {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(36px, 6vw, 58px);
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.05;
+  }
+  .cta-headline em {
+    color: #D4A843;
+    font-style: normal;
+  }
+  .cta-sub {
+    color: rgba(255,255,255,0.45);
+    font-size: 16px;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: #D4A843;
+    color: #0a090f;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.88; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #060508;
+    border-top: 1px solid #151515;
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-copy {
+    color: rgba(255,255,255,0.3);
+    font-size: 13px;
+  }
+  .footer-copy span { color: #D4A843; margin: 0 5px; }
+  .footer-back {
+    color: rgba(255,255,255,0.3);
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-back:hover { color: #D4A843; }
+  @media(max-width: 600px){
+    footer { justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="brand-line">The Carry-On Co. · City Cheat Sheets</div>
+  <h1 class="hero-headline">Europe<br>Decoded.</h1>
+  <p class="hero-sub">20 cities. Zero guesswork. Your complete guide to affordable Europe travel.</p>
+  <div class="stat-chips">
+    <div class="chip">20 Cities</div>
+    <div class="chip">14 Countries</div>
+    <div class="chip">From $9</div>
+    <div class="chip">Instant Download</div>
+  </div>
+</div>
+
+<!-- ─── CITY GRID ─── -->
+<div class="grid-section">
+  <div class="section-label">All Cities · Pick Your Destination</div>
+
+  <!-- SPAIN -->
+  <div class="region-group">
+    <div class="region-label">Spain</div>
+    <div class="city-grid">
+      <a href="barcelona.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Barcelona</div>
+        <div class="city-card-country">Spain</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="madrid.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Madrid</div>
+        <div class="city-card-country">Spain</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="seville.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Seville</div>
+        <div class="city-card-country">Spain</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ITALY -->
+  <div class="region-group">
+    <div class="region-label">Italy</div>
+    <div class="city-grid">
+      <a href="rome.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Rome</div>
+        <div class="city-card-country">Italy</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="florence.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Florence</div>
+        <div class="city-card-country">Italy</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="venice.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Venice</div>
+        <div class="city-card-country">Italy</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FRANCE · NETHERLANDS · AUSTRIA -->
+  <div class="region-group">
+    <div class="region-label">France · Netherlands · Austria</div>
+    <div class="city-grid">
+      <a href="paris.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Paris</div>
+        <div class="city-card-country">France</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="amsterdam.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Amsterdam</div>
+        <div class="city-card-country">Netherlands</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="vienna.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Vienna</div>
+        <div class="city-card-country">Austria</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- GERMANY · PORTUGAL -->
+  <div class="region-group">
+    <div class="region-label">Germany · Portugal</div>
+    <div class="city-grid">
+      <a href="berlin.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Berlin</div>
+        <div class="city-card-country">Germany</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="munich.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Munich</div>
+        <div class="city-card-country">Germany</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="lisbon.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Lisbon</div>
+        <div class="city-card-country">Portugal</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="porto.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Porto</div>
+        <div class="city-card-country">Portugal</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- GREECE · CZECH REPUBLIC · HUNGARY -->
+  <div class="region-group">
+    <div class="region-label">Greece · Czech Republic · Hungary</div>
+    <div class="city-grid">
+      <a href="athens.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Athens</div>
+        <div class="city-card-country">Greece</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="prague.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Prague</div>
+        <div class="city-card-country">Czech Republic</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="budapest.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Budapest</div>
+        <div class="city-card-country">Hungary</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- IRELAND · SCOTLAND · SWEDEN · DENMARK -->
+  <div class="region-group">
+    <div class="region-label">Ireland · Scotland · Sweden · Denmark</div>
+    <div class="city-grid">
+      <a href="dublin.html" class="city-card coming-soon">
+        <div class="coming-badge">Coming Soon</div>
+        <div class="city-card-name">Dublin</div>
+        <div class="city-card-country">Ireland</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="edinburgh.html" class="city-card">
+        <div class="city-card-name">Edinburgh</div>
+        <div class="city-card-country">Scotland</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="stockholm.html" class="city-card">
+        <div class="city-card-name">Stockholm</div>
+        <div class="city-card-country">Sweden</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+      <a href="copenhagen.html" class="city-card">
+        <div class="city-card-name">Copenhagen</div>
+        <div class="city-card-country">Denmark</div>
+        <div class="city-card-link">View Guide →</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ─── HOW TO USE ─── -->
+<div class="how-section">
+  <div class="how-inner">
+    <h2 class="how-title">How It Works</h2>
+    <p class="how-sub">Each cheat sheet distills everything you need into one clear, scannable guide.</p>
+    <div class="how-cards">
+      <div class="how-card">
+        <div class="how-number">01</div>
+        <h3>Get the Cheat Sheet</h3>
+        <p>Pick your city above. Every guide covers getting there cheap, where to stay, what to eat, trending spots, top attractions, and a ready-made 3-day itinerary.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-number">02</div>
+        <h3>Plan Your Trip</h3>
+        <p>Use the money tips, hotel picks, and insider notes to build your trip around what matters. No filler, no paid placements — just what actually works.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-number">03</div>
+        <h3>Go & Enjoy</h3>
+        <p>Arrive with confidence. The cheat sheet tells you what to eat first, where to stay, how to get around, and how to spend three days like someone who actually knows the city.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CTA ─── -->
+<div class="cta-section">
+  <div class="cta-label">Ready to Plan?</div>
+  <h2 class="cta-headline">Your next trip<br>starts <em>here.</em></h2>
+  <p class="cta-sub">All 20 cities. Honest advice. Zero gatekeeping.</p>
+  <a href="https://carryonco.net" class="cta-btn">Plan My Trip at carryonco.net →</a>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-copy">
+    © The Carry-On Co.<span>·</span>carryonco.net<span>·</span>@tripsbygio
+  </div>
+  <a href="https://carryonco.net" class="footer-back">← Back to main site</a>
+</footer>
+
+</body>
+</html>

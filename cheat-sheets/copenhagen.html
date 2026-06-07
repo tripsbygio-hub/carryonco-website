@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copenhagen Cheat Sheet — The Carry-On Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f4f4f4; color: #111; }
+
+  .header {
+    background: #C60C30;
+    padding: 48px 40px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .flag-badge {
+    position: absolute;
+    top: 24px; right: 32px;
+    font-size: 48px;
+    line-height: 1;
+  }
+  .header-brand {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(55px, 12vw, 120px);
+    color: #FFFFFF;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .header-tagline {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 18px;
+  }
+  .header-blurb {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.82);
+    max-width: 620px;
+  }
+
+  .page-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .panel {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .panel-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #C60C30;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #C60C30;
+  }
+
+  .tips-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .tips-list li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    padding-left: 20px;
+    position: relative;
+  }
+  .tips-list li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: #D4A843;
+    font-weight: 700;
+  }
+
+  .tip-box {
+    background: #fff8e6;
+    border-left: 4px solid #D4A843;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #4a3a00;
+    margin-top: 14px;
+  }
+  .tip-box strong { color: #b8860b; }
+
+  .hotel-list { display: flex; flex-direction: column; gap: 12px; }
+  .hotel-item { border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
+  .hotel-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .hotel-name { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 16px; color: #111; }
+  .hotel-meta { font-size: 12px; color: #888; margin-top: 2px; }
+  .hotel-desc { font-size: 13.5px; color: #444; margin-top: 4px; line-height: 1.5; }
+
+  .food-specialty {
+    background: linear-gradient(135deg, #C60C30 0%, #e01035 100%);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .food-specialty-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D4A843;
+    margin-bottom: 6px;
+  }
+  .food-specialty h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .food-specialty p { font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.85); }
+
+  .food-strip {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .food-tag {
+    background: #f5f5f5;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #333;
+    border: 1px solid #e0e0e0;
+  }
+
+  .restaurant-list { display: flex; flex-direction: column; gap: 12px; }
+  .restaurant-item { display: flex; flex-direction: column; gap: 3px; }
+  .restaurant-name { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 15px; color: #111; }
+  .restaurant-detail { font-size: 13px; color: #666; }
+  .restaurant-desc { font-size: 13px; color: #444; line-height: 1.5; }
+
+  .trending-section {
+    background: #111;
+    border-radius: 12px;
+    padding: 28px 32px;
+  }
+  .trending-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D4A843;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .trending-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .trending-grid { grid-template-columns: 1fr; } }
+  .trending-card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 18px;
+    border: 1px solid #2a2a2a;
+  }
+  .trending-card-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .trending-card-location {
+    font-size: 11.5px;
+    color: #D4A843;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .trending-card-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.55;
+  }
+  .tiktok-btn {
+    display: inline-block;
+    margin-top: 12px;
+    background: #D4A843;
+    color: #111;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: default;
+  }
+
+  .rhythm-panel {
+    background: #C60C30;
+    border-radius: 12px;
+    padding: 28px 32px;
+    color: #fff;
+  }
+  .rhythm-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D4A843;
+    margin-bottom: 18px;
+  }
+  .rhythm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .rhythm-grid { grid-template-columns: 1fr; } }
+  .rhythm-item h4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: #D4A843;
+    margin-bottom: 6px;
+  }
+  .rhythm-item p { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+
+  .attraction-list { display: flex; flex-direction: column; gap: 10px; }
+  .attraction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .attraction-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .attraction-name { font-size: 14px; font-weight: 500; color: #111; }
+  .attraction-note { font-size: 12px; color: #888; margin-top: 2px; }
+  .attraction-time {
+    background: #fff0f2;
+    color: #C60C30;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .free-badge {
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+  }
+
+  .itinerary-day { margin-bottom: 24px; }
+  .itinerary-day:last-child { margin-bottom: 0; }
+  .day-label {
+    font-family: 'Anton', sans-serif;
+    font-size: 22px;
+    color: #C60C30;
+    margin-bottom: 10px;
+  }
+  .day-items { display: flex; flex-direction: column; gap: 8px; }
+  .day-item { display: flex; gap: 12px; align-items: flex-start; }
+  .day-time {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    color: #D4A843;
+    min-width: 70px;
+    padding-top: 2px;
+  }
+  .day-activity { font-size: 13.5px; color: #333; line-height: 1.5; }
+
+  .money-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media(max-width:600px){ .money-grid { grid-template-columns: 1fr; } }
+  .money-item {
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #eee;
+  }
+  .money-item h4 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #C60C30;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .money-item p { font-size: 13px; color: #555; line-height: 1.55; }
+
+  footer {
+    background: #111;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  footer span { color: #D4A843; margin: 0 6px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="flag-badge">🇩🇰</div>
+  <div class="header-brand">The Carry-On Co. · City Cheat Sheet</div>
+  <h1>Copenhagen</h1>
+  <div class="header-tagline">Europe's Happiest City — Nyhavn, Noma, & Nordic Excellence</div>
+  <p class="header-blurb">The happiest city in the world lives up to its billing. Copenhagen is expensive, yes — but the food scene is arguably the best in Europe, the design is extraordinary, and Nyhavn on a sunny day is as good as it gets.</p>
+</div>
+
+<div class="page-content">
+
+  <div class="panel">
+    <div class="panel-title">Getting There Cheap</div>
+    <ul class="tips-list">
+      <li><strong>Main airport:</strong> Copenhagen Airport (CPH) — one of Europe's best airports, 15 min from city center by Metro (37 DKK / ~£4.50).</li>
+      <li><strong>Budget airlines:</strong> Ryanair, easyJet, Wizz Air, Norwegian all serve CPH. Fares from €20–60 from most European cities.</li>
+      <li><strong>By train:</strong> Direct trains from Hamburg (~5 hrs), Malmö/Sweden (35 min via Øresund Bridge — day trips are easy). InterRail and Eurail pass accepted.</li>
+      <li><strong>Metro from airport:</strong> Metro Line M2 direct to Nørreport (central) in 15 min. Cheaper and faster than taxi. Buy a 2-zone ticket at the airport.</li>
+      <li><strong>Best time for prices:</strong> Shoulder season (April/May, September/October). July–August sees peak prices but long, beautiful days.</li>
+    </ul>
+    <div class="tip-box">
+      <strong>Pro tip:</strong> Copenhagen's transit system uses zones — most tourist attractions are in zones 1-2. A 24-hour city pass (180 DKK, ~£21) covers unlimited metro, bus, and S-train within the city. Worth it on a full sightseeing day.
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Getting Around</div>
+    <ul class="tips-list">
+      <li><strong>Metro:</strong> Clean, frequent, runs 24/7. Two lines (M1/M2) cover most of the city center and airport. New M3 Cityringen loop opened 2019 — adds key stops including Frederiksberg and Nørrebro.</li>
+      <li><strong>Cycling:</strong> Copenhagen is the world's most bike-friendly city. Bycyklen (City Bike) electric bikes available with app. Cycling infrastructure is extraordinary — many locals never use the metro.</li>
+      <li><strong>Walking:</strong> The city center is compact and very walkable. Nyhavn, Strøget, Tivoli, and Rosenborg are all within easy walking distance of each other.</li>
+      <li><strong>S-trains & Regional:</strong> For trips to Louisiana Museum (Humlebæk) take the S-train from Central Station (~45 min).</li>
+      <li><strong>Harbour Bus:</strong> Water buses along the harbour — scenic and covered by transit passes.</li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Where to Stay</div>
+    <div class="hotel-list">
+      <div class="hotel-item">
+        <div class="hotel-name">Hotel d'Angleterre</div>
+        <div class="hotel-meta">City Center · ££££ · Kongens Nytorv</div>
+        <div class="hotel-desc">Copenhagen's grand dame — 1755 luxury hotel on the city's finest square. The most prestigious address in the city. Exceptional service and rooms.</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">SP34</div>
+        <div class="hotel-meta">Latin Quarter · £££ · Sankt Peders Stræde</div>
+        <div class="hotel-desc">Boutique design hotel in the Latin Quarter. Eclectic, artsy, with a great ground-floor café. Loved by creative travelers and design enthusiasts.</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Wakeup Copenhagen</div>
+        <div class="hotel-meta">Bernstorffsgade · ££ · Central Station</div>
+        <div class="hotel-desc">Excellent mid-range Danish chain. Smart, design-forward rooms at reasonable prices (for Copenhagen). Multiple locations — the Carsten Niebuhrs Gade branch is well-located.</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-name">Generator Copenhagen</div>
+        <div class="hotel-meta">Adelgade · £ · City Center</div>
+        <div class="hotel-desc">Design hostel in a listed building near the harbour. Private rooms and dorms, excellent social spaces, good bar. One of Europe's best hostels.</div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <strong>Best neighborhoods:</strong> Indre By (city center) for convenience; Nørrebro for local life and better restaurant value; Frederiksberg for a quieter, more residential feel. All are metro-connected.
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Food & Drink</div>
+    <div class="food-specialty">
+      <div class="food-specialty-label">Must Try</div>
+      <h3>Smørrebrød</h3>
+      <p>Denmark's iconic open-faced sandwiches — dark rye bread loaded with herring, roast beef, egg, or shrimp. Every toppings combination is an art form. Try at Torvehallerne market or a traditional smørrebrød restaurant. The definitive Danish lunch.</p>
+    </div>
+    <div class="food-strip">
+      <span class="food-tag">Smørrebrød</span>
+      <span class="food-tag">Frikadeller</span>
+      <span class="food-tag">Flæskesteg</span>
+      <span class="food-tag">Wienerbrød</span>
+      <span class="food-tag">Danish Hot Dogs</span>
+      <span class="food-tag">Carlsberg / Tuborg</span>
+      <span class="food-tag">Akvavit</span>
+      <span class="food-tag">Rugbrød</span>
+    </div>
+    <div class="restaurant-list">
+      <div class="restaurant-item">
+        <div class="restaurant-name">Schønnemann</div>
+        <div class="restaurant-detail">Indre By · ££ · Hauser Plads — Lunch only</div>
+        <div class="restaurant-desc">Copenhagen's most beloved smørrebrød restaurant since 1877. Long lunch of Danish open sandwiches with aquavit. A classic that every visitor should try once.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">Noma (if you can)</div>
+        <div class="restaurant-detail">Christianshavn · ££££ · Reservations open months ahead</div>
+        <div class="restaurant-desc">René Redzepi's legendary restaurant — currently in pop-up format before closing permanently in 2025. If you can get a seat in its final form, take it.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">Kødbyens Mad og Marked</div>
+        <div class="restaurant-detail">Vesterbro · £ · Meat Packing District</div>
+        <div class="restaurant-desc">Street food market in the trendy Meatpacking District. Perfect Saturday lunch spot — natural wine, small plates, local producers, creative food stalls.</div>
+      </div>
+      <div class="restaurant-item">
+        <div class="restaurant-name">Gasoline Grill</div>
+        <div class="restaurant-detail">Multiple locations · £</div>
+        <div class="restaurant-desc">Copenhagen's cult burger spot in a converted gas station. Simple, excellent, beloved by locals. Always a queue — but it moves fast.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trending-section">
+    <div class="trending-title">📍 Trending Right Now</div>
+    <div class="trending-grid">
+      <div class="trending-card">
+        <div class="trending-card-name">Reffen</div>
+        <div class="trending-card-location">Refshaleøen Waterfront</div>
+        <div class="trending-card-desc">Copenhagen's largest street food market — open summer only on the industrial waterfront. Incredible variety, local produce, natural wine, and incredible views. Summer's best evening out.</div>
+        <span class="tiktok-btn">🎵 Trending on TikTok</span>
+      </div>
+      <div class="trending-card">
+        <div class="trending-card-name">Bæst</div>
+        <div class="trending-card-location">Nørrebro · Guldbergsgade</div>
+        <div class="trending-card-desc">Natural wine + wood-fired pizza using house-made charcuterie and local dairy. Michelin Bib Gourmand. ⚠️ Book well ahead — this is one of the hardest reservations in the city.</div>
+        <span class="tiktok-btn">🎵 Trending on TikTok</span>
+      </div>
+      <div class="trending-card">
+        <div class="trending-card-name">Torvehallerne</div>
+        <div class="trending-card-location">Israels Plads</div>
+        <div class="trending-card-desc">Copenhagen's covered food market — the best coffee (The Coffee Collective), fresh smørrebrød, fish, and local produce under one roof. The city's best casual food destination.</div>
+        <span class="tiktok-btn">🎵 Trending on TikTok</span>
+      </div>
+      <div class="trending-card">
+        <div class="trending-card-name">Geranium</div>
+        <div class="trending-card-location">Østerbro · Fælledparken</div>
+        <div class="trending-card-desc">3-Michelin-star from René Redzepi alumni — ranked 2023 World's Best Restaurant. Book months ahead. The pinnacle of Nordic fine dining. A once-in-a-decade meal.</div>
+        <span class="tiktok-btn">🎵 Trending on TikTok</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rhythm-panel">
+    <div class="rhythm-title">Local Rhythm — What to Know</div>
+    <div class="rhythm-grid">
+      <div class="rhythm-item">
+        <h4>Best Time to Visit</h4>
+        <p>May–September: long days, outdoor dining, Reffen market open, canal swimming, Tivoli at its best. December: Tivoli Christmas market is world-famous and magical. Spring (April/May) offers good weather and lower prices.</p>
+      </div>
+      <div class="rhythm-item">
+        <h4>Hygge Culture</h4>
+        <p>Hygge (cozy contentment) isn't a marketing gimmick — it's real. Danes genuinely prioritize warmth, candles, and good company. Lean into it: slow evenings, good food, low lighting. The city designed itself around it.</p>
+      </div>
+      <div class="rhythm-item">
+        <h4>Cost Management</h4>
+        <p>Copenhagen is one of Europe's most expensive cities. Hack it: street hot dogs (25–35 DKK), lunch at Torvehallerne, free museums, swimming in the harbour canals (it's clean), and self-catering breakfast from supermarkets.</p>
+      </div>
+      <div class="rhythm-item">
+        <h4>Harbour Swimming</h4>
+        <p>Copenhagen cleaned its harbour to the point where locals swim directly in the city center canals. Islands Brygge Harbour Bath is free, central, and extraordinary — open May to September. Bring a towel.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Top Attractions</div>
+    <div class="attraction-list">
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">Nyhavn Harbour <span class="free-badge">FREE</span></div>
+          <div class="attraction-note">Iconic colored townhouses along the canal — best with a cold Carlsberg on the quayside on a sunny afternoon</div>
+        </div>
+        <div class="attraction-time">1 hr</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">Tivoli Gardens</div>
+          <div class="attraction-note">Historic amusement park from 1843 — Walt Disney's inspiration. Spring to autumn + magical Christmas edition</div>
+        </div>
+        <div class="attraction-time">Half day</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">The Little Mermaid</div>
+          <div class="attraction-note">Yes, it's smaller than you expect. Still a Copenhagen pilgrimage. 20 min walk from Nyhavn along the harbour</div>
+        </div>
+        <div class="attraction-time">30 min</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">Rosenborg Castle + Crown Jewels</div>
+          <div class="attraction-note">17th-century castle in the King's Garden — Danish Crown Jewels in the treasury basement</div>
+        </div>
+        <div class="attraction-time">2 hrs</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">Amalienborg Palace <span class="free-badge">FREE outside</span></div>
+          <div class="attraction-note">Royal residence — octagonal square with four palaces. Changing of the guard daily at noon</div>
+        </div>
+        <div class="attraction-time">30 min</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">Christiania <span class="free-badge">FREE</span></div>
+          <div class="attraction-note">Freetown community founded 1971 — fascinating alternative neighborhood, murals, live music. No photography on Pusher Street</div>
+        </div>
+        <div class="attraction-time">1 hr</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">National Museum of Denmark <span class="free-badge">FREE</span></div>
+          <div class="attraction-note">Danish prehistory through to the modern age — Viking artifacts, rune stones, ethnographic collections</div>
+        </div>
+        <div class="attraction-time">3 hrs</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">SMK National Gallery <span class="free-badge">FREE</span></div>
+          <div class="attraction-note">Danish and international art — Rembrandt, Matisse, Picasso plus excellent Danish Golden Age collection</div>
+        </div>
+        <div class="attraction-time">2 hrs</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">Strøget Shopping Street <span class="free-badge">FREE</span></div>
+          <div class="attraction-note">Europe's longest pedestrian shopping street — mix of high street and local design shops</div>
+        </div>
+        <div class="attraction-time">1–2 hrs</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">Frederiksberg Gardens <span class="free-badge">FREE</span></div>
+          <div class="attraction-note">Beautiful royal gardens — rowboats for hire, Frederiksberg Palace, canal system through the park</div>
+        </div>
+        <div class="attraction-time">2 hrs</div>
+      </div>
+      <div class="attraction-item">
+        <div>
+          <div class="attraction-name">Louisiana Museum of Modern Art <span class="free-badge">Day trip</span></div>
+          <div class="attraction-note">45 min north by train — cliffside sculpture garden over the sea, world-class modern art, extraordinary building</div>
+        </div>
+        <div class="attraction-time">45 min train</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">3-Day Itinerary</div>
+    <div class="itinerary-day">
+      <div class="day-label">Day 1 — Nyhavn, Old Town & Tivoli</div>
+      <div class="day-items">
+        <div class="day-item"><div class="day-time">Morning</div><div class="day-activity">Start at Torvehallerne market for breakfast — The Coffee Collective espresso and a pastry. Then walk to Rosenborg Castle and the King's Garden.</div></div>
+        <div class="day-item"><div class="day-time">Lunch</div><div class="day-activity">Nyhavn — sit on the quayside with a cold beer and a smørrebrød from one of the harbour restaurants. Iconic photo opportunity.</div></div>
+        <div class="day-item"><div class="day-time">Afternoon</div><div class="day-activity">Walk to Amalienborg Palace (noon changing of guard if timing works), The Little Mermaid, back along the harbour promenade.</div></div>
+        <div class="day-item"><div class="day-time">Evening</div><div class="day-activity">Tivoli Gardens — dinner and entertainment in the historic park. Magical after dark.</div></div>
+      </div>
+    </div>
+    <div class="itinerary-day">
+      <div class="day-label">Day 2 — Free Museums & Nørrebro</div>
+      <div class="day-items">
+        <div class="day-item"><div class="day-time">Morning</div><div class="day-activity">National Museum of Denmark (free, 3 hrs) — Viking history, rune stones, and Danish culture. One of Europe's best national museums.</div></div>
+        <div class="day-item"><div class="day-time">Lunch</div><div class="day-activity">Head to Nørrebro — lunch at a local café on Jægersborggade street, which has Copenhagen's best concentration of independent shops and eateries.</div></div>
+        <div class="day-item"><div class="day-time">Afternoon</div><div class="day-activity">Explore Nørrebro neighborhood — Assistens Cemetery (Kierkegaard and HC Andersen are buried here), local design shops, street art.</div></div>
+        <div class="day-item"><div class="day-time">Evening</div><div class="day-activity">Dinner at Bæst (book ahead) for wood-fired pizza and natural wine. Or explore the Meatpacking District (Vesterbro) bar scene.</div></div>
+      </div>
+    </div>
+    <div class="itinerary-day">
+      <div class="day-label">Day 3 — Louisiana Day Trip</div>
+      <div class="day-items">
+        <div class="day-item"><div class="day-time">Morning</div><div class="day-activity">Early S-train from Central Station to Humlebæk (45 min) — Louisiana Museum of Modern Art. One of the world's great art museums, cliffside over the Øresund.</div></div>
+        <div class="day-item"><div class="day-time">Afternoon</div><div class="day-activity">Return to Copenhagen — SMK National Gallery (free) for Danish Golden Age art. Walk through Frederiksberg Gardens.</div></div>
+        <div class="day-item"><div class="day-time">Evening</div><div class="day-activity">Reffen (summer) or Christiania wander. Final Copenhagen dinner — try akvavit with traditional Danish food at a proper Danish restaurant.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">Money Tips</div>
+    <div class="money-grid">
+      <div class="money-item">
+        <h4>Currency</h4>
+        <p>Danish Krone (DKK). €1 ≈ 7.46 DKK. Denmark is in the EU but kept the Krone. Cards accepted everywhere — Denmark is essentially cashless. Most street stalls take contactless.</p>
+      </div>
+      <div class="money-item">
+        <h4>Budget Per Day</h4>
+        <p>Budget: 500–700 DKK (£58–80). Mid-range: 1,000–1,400 DKK (£115–160). Expensive city, but free museums and street food help significantly.</p>
+      </div>
+      <div class="money-item">
+        <h4>Free Attractions</h4>
+        <p>National Museum, SMK Gallery, Frederiksberg Gardens, Nyhavn (just sitting), Christiania, all beaches, harbour swimming. Half a week's worth of great free activities.</p>
+      </div>
+      <div class="money-item">
+        <h4>Hot Dog Hack</h4>
+        <p>Copenhagen's pølsevogn (hot dog stands) sell exceptional Danish-style hot dogs for 25–35 DKK (£3–4). They're a cultural institution — not a compromise. The Danes are very serious about their hot dogs.</p>
+      </div>
+      <div class="money-item">
+        <h4>Copenhagen Card</h4>
+        <p>Includes transport + 80+ attractions. Good value if you're doing 4+ paid sights (Tivoli, Rosenborg, Amalienborg museum, boat tours). Available as 24/48/72/120 hr passes.</p>
+      </div>
+      <div class="money-item">
+        <h4>Tipping</h4>
+        <p>10% in restaurants is appropriate but not obligatory. Danes are not big tippers themselves — service charges are included in prices. Don't stress about it; a few DKK rounding up is perfectly fine.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  © The Carry-On Co.<span>·</span>carryonco.net<span>·</span>@tripsbygio
+</footer>
+
+</body>
+</html>
