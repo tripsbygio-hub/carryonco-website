@@ -95,86 +95,67 @@
     .scroll-line { width: 1px; height: 56px; background: linear-gradient(to bottom, var(--gold), transparent); animation: pulse-line 2s ease-in-out infinite; }
     @keyframes pulse-line { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
 
-    /* ─── NEWSLETTER STRIP (below hero) ────────────────────── */
-    .nl-strip {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: #0f0900;
-      border-top: 1px solid rgba(212,168,67,0.3);
-      border-bottom: 1px solid rgba(212,168,67,0.15);
+    /* ─── PARTNERS / WHERE YOU'LL STAY ───────────────────────── */
+    .partners {
+      background: #f5ede0;
+      padding: 112px 80px;
     }
-    .nl-strip-left {
-      padding: 80px 72px 80px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: linear-gradient(135deg, #0f0900 0%, #160e00 100%);
+    .partners-header {
+      max-width: 760px;
+      margin: 0 auto 80px;
+      text-align: center;
     }
-    .nl-strip-left .eyebrow { justify-content: flex-start; margin-bottom: 20px; }
-    .nl-strip-left h2 {
+    .partners-header .eyebrow { color: var(--gold); }
+    .partners-header .eyebrow::before,
+    .partners-header .eyebrow::after { background: var(--gold); opacity: 0.5; }
+    .partners-header h2 {
       font-family: var(--serif);
-      font-size: clamp(30px, 3.5vw, 48px);
+      font-size: clamp(40px, 5vw, 62px);
       font-weight: 700;
-      color: var(--cream);
-      line-height: 1.1;
+      color: var(--ink);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
       margin-bottom: 20px;
-      letter-spacing: -0.01em;
     }
-    .nl-strip-left h2 em { font-family: var(--italic); font-style: italic; font-weight: 300; color: var(--gold-bright); }
-    .nl-strip-left > p { font-size: 15px; line-height: 1.8; color: var(--cream-dim); margin-bottom: 28px; max-width: 420px; }
-    .nl-perks { list-style: none; }
-    .nl-perks li { font-size: 13px; color: rgba(240,234,224,0.7); padding: 8px 0; display: flex; align-items: flex-start; gap: 12px; line-height: 1.5; }
-    .nl-perks li::before { content: '✦'; color: var(--gold-bright); font-size: 8px; margin-top: 3px; flex-shrink: 0; }
+    .partners-header h2 em { font-family: var(--italic); font-style: italic; font-weight: 300; color: var(--gold); }
+    .partners-header p { font-size: 16px; line-height: 1.8; color: rgba(8,6,4,0.6); max-width: 620px; margin: 0 auto; }
 
-    .nl-strip-right {
-      background: linear-gradient(135deg, #1a1000 0%, #0f0900 100%);
+    .partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 56px; }
+    .ptier { background: var(--ink-3); overflow: hidden; transition: background 0.3s; }
+    .ptier:hover { background: var(--ink-4); }
+    .ptier-img { position: relative; height: 260px; overflow: hidden; }
+    .ptier-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) saturate(1.25); transition: transform 0.55s ease, filter 0.4s; }
+    .ptier:hover .ptier-img img { transform: scale(1.05); filter: brightness(1.0) saturate(1.35); }
+    .ptier-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 45%, rgba(8,6,4,0.55) 100%); pointer-events: none; }
+    .ptier-body { padding: 36px 40px 44px; }
+    .ptier-tag { font-size: 9px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 8px; }
+    .ptier-price { font-size: 11px; font-weight: 400; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 18px; }
+    .ptier h3 { font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--cream); margin-bottom: 12px; line-height: 1.2; }
+    .ptier p { font-size: 13.5px; line-height: 1.8; color: var(--cream-dim); margin-bottom: 22px; }
+    .ptier-chains { font-size: 9.5px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(212,168,67,0.55); border-top: 1px solid rgba(212,168,67,0.12); padding-top: 18px; }
+
+    .partners-brand-strip {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 80px 80px 56px;
-      border-left: 1px solid rgba(212,168,67,0.12);
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(8,6,4,0.12);
+      padding-top: 48px;
+      gap: 0;
     }
-    .nl-form-wrap { width: 100%; max-width: 420px; }
-    .nl-form-tag { font-size: 9px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
-    .nl-form-tag::before { content: ''; display: block; flex: 1; height: 1px; background: rgba(212,168,67,0.3); }
-    .nl-form-tag::after { content: ''; display: block; flex: 1; height: 1px; background: rgba(212,168,67,0.3); }
-    .nl-field { margin-bottom: 16px; }
-    .nl-field label { font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 10px; }
-    .nl-field input {
-      width: 100%;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(212,168,67,0.2);
-      color: var(--cream);
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 300;
-      padding: 14px 18px;
-      outline: none;
-      transition: border-color 0.3s, background 0.3s;
-    }
-    .nl-field input:focus { border-color: var(--gold-bright); background: rgba(212,168,67,0.04); }
-    .nl-field input::placeholder { color: rgba(107,99,88,0.6); }
-    .nl-submit {
-      width: 100%;
-      font-family: var(--sans);
-      font-size: 10.5px;
+    .brand-pill {
+      font-size: 9.5px;
       font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--ink);
-      background: var(--gold-bright);
-      border: none;
-      padding: 16px 24px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-      margin-top: 8px;
+      color: rgba(8,6,4,0.38);
+      padding: 14px 36px;
+      border-right: 1px solid rgba(8,6,4,0.1);
+      white-space: nowrap;
+      transition: color 0.2s;
     }
-    .nl-submit:hover { background: var(--gold-pale); transform: translateY(-1px); }
-    .nl-fine { font-size: 11px; color: var(--muted); text-align: center; margin-top: 14px; }
-    .nl-success { text-align: center; padding: 24px 0; }
-    .nl-success-icon { font-size: 28px; color: var(--gold-bright); margin-bottom: 12px; }
-    .nl-success h4 { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
-    .nl-success p { font-size: 14px; color: var(--cream-dim); line-height: 1.7; }
+    .brand-pill:last-child { border-right: none; }
+    .brand-pill:hover { color: rgba(8,6,4,0.7); }
 
     /* ─── ABOUT ──────────────────────────────────────────── */
     .about { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; }
@@ -262,47 +243,61 @@
     .club-features li::before { content: '✦'; color: var(--gold-bright); font-size: 9px; margin-top: 3px; flex-shrink: 0; }
     .club-right > p { font-size: 13.5px; line-height: 1.8; color: var(--cream-dim); margin-bottom: 36px; }
 
-    /* ─── BOOKING (person barely visible) ───────────────────── */
+    /* ─── BOOKING — bright, luxurious, readable ─────────────── */
     .booking { position: relative; overflow: hidden; }
     .booking-bg { position: absolute; inset: 0; }
-    /* Person is almost a ghost — nearly invisible */
-    .booking-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 70%; filter: brightness(0.06) saturate(0) blur(1px); }
-    .booking-bg-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,6,4,0.55) 0%, rgba(8,6,4,0.82) 100%); }
-    .booking-inner { position: relative; z-index: 2; max-width: 940px; margin: 0 auto; padding: 128px 80px; }
-    .booking-head { text-align: center; margin-bottom: 72px; }
-    .booking-head h2 { font-family: var(--serif); font-size: clamp(40px, 5vw, 68px); font-weight: 700; color: var(--cream); letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 16px; }
+    /* Vivid Amalfi/Positano backdrop — you can SEE the color */
+    .booking-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: brightness(0.42) saturate(1.15); }
+    /* Warm amber-dark overlay — not cold black */
+    .booking-bg-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,3,0,0.5) 0%, rgba(10,5,0,0.78) 100%); }
+    .booking-inner { position: relative; z-index: 2; max-width: 980px; margin: 0 auto; padding: 128px 80px; }
+    .booking-head { text-align: center; margin-bottom: 64px; }
+    .booking-head h2 { font-family: var(--serif); font-size: clamp(44px, 5.5vw, 76px); font-weight: 900; color: #ffffff; letter-spacing: -0.02em; line-height: 0.95; margin-bottom: 24px; }
     .booking-head h2 em { font-family: var(--italic); font-style: italic; font-weight: 300; color: var(--gold-bright); }
-    .booking-head p { font-size: 15px; color: var(--cream-dim); max-width: 520px; margin: 0 auto; line-height: 1.75; }
+    .booking-head p { font-size: 16px; color: rgba(240,234,224,0.88); max-width: 580px; margin: 0 auto 40px; line-height: 1.8; }
+
+    /* How It Works — 3-step process strip */
+    .booking-process { display: flex; align-items: center; justify-content: center; gap: 0; margin: 0 auto 72px; max-width: 740px; border: 1px solid rgba(212,168,67,0.25); }
+    .bstep { flex: 1; text-align: center; padding: 22px 24px; position: relative; }
+    .bstep:not(:last-child)::after { content: '→'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); color: var(--gold-bright); font-size: 12px; z-index: 1; }
+    .bstep-num { font-size: 8px; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 6px; }
+    .bstep-label { font-size: 12px; font-weight: 400; color: rgba(240,234,224,0.8); letter-spacing: 0.05em; line-height: 1.45; }
 
     .form-open { padding: 0; }
-    .form-block { margin-bottom: 56px; }
-    .form-block-title { font-size: 9px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-bright); padding-bottom: 18px; border-bottom: 1px solid rgba(212,168,67,0.2); margin-bottom: 36px; }
+    .form-block { margin-bottom: 52px; }
+    /* Section titles — bright gold, fully visible */
+    .form-block-title { font-size: 9px; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-pale); padding-bottom: 18px; border-bottom: 1px solid rgba(212,168,67,0.35); margin-bottom: 36px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
     .form-row.single { grid-template-columns: 1fr; }
     .form-row.thirds { grid-template-columns: 1fr 1fr 1fr; }
     .field { display: flex; flex-direction: column; gap: 10px; }
-    .field label { font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+    /* Labels — bright gold, not muted gray */
+    .field label { font-size: 9px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(212,168,67,0.9); }
     .field label .req { color: var(--gold-bright); }
-    .field input, .field select, .field textarea { background: transparent; border: none; border-bottom: 1px solid rgba(212,168,67,0.25); color: var(--cream); font-family: var(--sans); font-size: 15px; font-weight: 300; padding: 12px 0; outline: none; transition: border-color 0.3s; width: 100%; border-radius: 0; }
-    .field input::placeholder, .field textarea::placeholder { color: rgba(107,99,88,0.7); }
+    /* Inputs — pure white text, strong gold underline */
+    .field input, .field select, .field textarea { background: transparent; border: none; border-bottom: 1px solid rgba(212,168,67,0.5); color: #ffffff; font-family: var(--sans); font-size: 15px; font-weight: 300; padding: 13px 0; outline: none; transition: border-color 0.3s; width: 100%; border-radius: 0; }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(240,234,224,0.38); }
     .field input:focus, .field select:focus, .field textarea:focus { border-bottom-color: var(--gold-bright); }
     .field select { cursor: pointer; }
     .field select option { background: #1a1410; color: var(--cream); }
     .field textarea { resize: none; min-height: 100px; }
 
-    .budget-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .budget-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
     .budget-opt { position: relative; }
     .budget-opt input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
-    .budget-opt label { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 22px 12px; border: 1px solid rgba(212,168,67,0.2); cursor: pointer; transition: all 0.25s; text-align: center; }
-    .budget-opt label .budget-range { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
-    .budget-opt label .budget-tier { font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-    .budget-opt input:checked + label { border-color: var(--gold-bright); background: rgba(212,168,67,0.08); }
+    /* Budget cards — bright, clearly readable */
+    .budget-opt label { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 22px 12px; border: 1px solid rgba(212,168,67,0.3); cursor: pointer; transition: all 0.25s; text-align: center; background: rgba(212,168,67,0.04); }
+    .budget-opt label:hover { border-color: rgba(212,168,67,0.6); background: rgba(212,168,67,0.08); }
+    .budget-opt label .budget-range { font-family: var(--serif); font-size: 16px; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
+    .budget-opt label .budget-tier { font-size: 8.5px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(240,234,224,0.6); }
+    .budget-opt input:checked + label { border-color: var(--gold-bright); background: rgba(212,168,67,0.14); box-shadow: 0 0 24px rgba(212,168,67,0.12); }
     .budget-opt input:checked + label .budget-range { color: var(--gold-bright); }
+    .budget-opt input:checked + label .budget-tier { color: rgba(212,168,67,0.7); }
 
-    .form-submit-row { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-top: 48px; border-top: 1px solid rgba(212,168,67,0.12); flex-wrap: wrap; }
-    .form-submit-row p { font-size: 12px; color: var(--muted); max-width: 360px; line-height: 1.65; }
-    .submit-btn { font-family: var(--sans); font-size: 10.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); background: var(--gold-bright); border: none; padding: 18px 56px; cursor: pointer; transition: background 0.2s, transform 0.2s; flex-shrink: 0; }
-    .submit-btn:hover { background: var(--gold-pale); transform: translateY(-2px); }
+    .form-submit-row { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-top: 48px; border-top: 1px solid rgba(212,168,67,0.25); flex-wrap: wrap; }
+    .form-submit-row p { font-size: 13px; color: rgba(240,234,224,0.65); max-width: 380px; line-height: 1.7; }
+    .submit-btn { font-family: var(--sans); font-size: 10.5px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); background: var(--gold-bright); border: none; padding: 20px 64px; cursor: pointer; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; flex-shrink: 0; box-shadow: 0 6px 40px rgba(212,168,67,0.35); }
+    .submit-btn:hover { background: var(--gold-pale); transform: translateY(-2px); box-shadow: 0 8px 48px rgba(212,168,67,0.5); }
 
     /* ─── JOURNAL ─────────────────────────────────────────── */
     .journal { padding: 128px 80px; background: var(--ink-2); }
@@ -351,9 +346,11 @@
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .nav-links { display: none; }
-      .nl-strip { grid-template-columns: 1fr; }
-      .nl-strip-left { padding: 60px 32px; }
-      .nl-strip-right { padding: 48px 32px; border-left: none; border-top: 1px solid rgba(212,168,67,0.12); }
+      .partners { padding: 72px 24px; }
+      .partners-grid { grid-template-columns: 1fr; }
+      .brand-pill { padding: 12px 20px; font-size: 8.5px; }
+      .booking-process { flex-direction: column; gap: 0; }
+      .bstep:not(:last-child)::after { content: '↓'; right: auto; top: auto; bottom: -10px; left: 50%; transform: translateX(-50%); }
       .about { grid-template-columns: 1fr; }
       .about-img { min-height: 300px; }
       .about-text { padding: 64px 32px; }
@@ -443,35 +440,65 @@
   </section>
 
   <!-- ════════════════════════════════
-       NEWSLETTER STRIP (right below hero)
+       PARTNERS — WHERE YOU'LL STAY
        ════════════════════════════════ -->
-  <section class="nl-strip reveal" id="club">
-    <div class="nl-strip-left">
-      <div class="eyebrow">The Cheap Europe Club</div>
-      <h2>Real flight deals to Europe.<br/>Every week. <em>Free.</em></h2>
-      <p>The travelers finding $290 roundtrips to Paris aren't lucky — they're subscribed. Join thousands of smart travelers getting curated deals, tips, and city breakdowns every week.</p>
-      <ul class="nl-perks">
-        <li>Weekly curated Europe flight deal alerts</li>
-        <li>Mistake fare drops the day they appear</li>
-        <li>Monthly under-$2,000 full Europe trip breakdown</li>
-      </ul>
+  <section class="partners reveal">
+    <div class="partners-header">
+      <div class="eyebrow">Where You'll Stay</div>
+      <h2>Handpicked From The World's <em>Finest Collections.</em></h2>
+      <p>We know exactly which Marriott in Paris is worth the points. Which Four Seasons rate becomes reachable with smart timing. Which boutique in Positano will beat them both. Every recommendation is vetted personally — no affiliates, no commissions.</p>
     </div>
-    <div class="nl-strip-right">
-      <div class="nl-form-wrap">
-        <div class="nl-form-tag">Join free — no credit card</div>
-        <form id="clubForm" onsubmit="handleClubSubmit(event)">
-          <div class="nl-field">
-            <label>First Name</label>
-            <input type="text" name="firstName" placeholder="Your first name" autocomplete="given-name"/>
-          </div>
-          <div class="nl-field">
-            <label>Email Address <span style="color:var(--gold-bright)">*</span></label>
-            <input type="email" name="email" placeholder="you@email.com" required autocomplete="email"/>
-          </div>
-          <button type="submit" class="nl-submit">Join Free — Get This Week's Deals →</button>
-          <p class="nl-fine">No spam. Unsubscribe anytime.</p>
-        </form>
+
+    <div class="partners-grid">
+
+      <div class="ptier">
+        <div class="ptier-img">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=85" alt="Smart stay hotel" loading="lazy"/>
+        </div>
+        <div class="ptier-body">
+          <div class="ptier-tag">Smart Budget</div>
+          <div class="ptier-price">€80 – €160 / night</div>
+          <h3>Clean, Central, and Better Than You Expected</h3>
+          <p>The sweet spot most travellers miss. Boutique hotels and well-placed chains that are indistinguishable from €300 options — if you know where to look.</p>
+          <div class="ptier-chains">Marriott Courtyard &nbsp;·&nbsp; Hilton Garden Inn &nbsp;·&nbsp; ibis Styles &nbsp;·&nbsp; Hotel Indigo</div>
+        </div>
       </div>
+
+      <div class="ptier">
+        <div class="ptier-img">
+          <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=85" alt="Best-in-class hotel" loading="lazy"/>
+        </div>
+        <div class="ptier-body">
+          <div class="ptier-tag">Best-in-Class</div>
+          <div class="ptier-price">€160 – €320 / night</div>
+          <h3>The Westin in Amsterdam. The Renaissance in Florence.</h3>
+          <p>Full-service properties in landmark locations. The kind of lobby you want to walk into after a long travel day. Points-redemption strategy included.</p>
+          <div class="ptier-chains">Westin &nbsp;·&nbsp; Marriott &nbsp;·&nbsp; Renaissance &nbsp;·&nbsp; Hyatt Regency &nbsp;·&nbsp; Kimpton</div>
+        </div>
+      </div>
+
+      <div class="ptier">
+        <div class="ptier-img">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=85" alt="Luxury hotel suite" loading="lazy"/>
+        </div>
+        <div class="ptier-body">
+          <div class="ptier-tag">Luxury Collection</div>
+          <div class="ptier-price">€320+ / night</div>
+          <h3>When Instagram Doesn't Do It Justice</h3>
+          <p>St. Regis Rome. Four Seasons George V in Paris. The Ritz-Carlton in Vienna. Bucket-list stays that are closer to your budget than you think — with the right strategy.</p>
+          <div class="ptier-chains">Four Seasons &nbsp;·&nbsp; St. Regis &nbsp;·&nbsp; Ritz-Carlton &nbsp;·&nbsp; Conrad &nbsp;·&nbsp; Grand Hyatt</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="partners-brand-strip">
+      <span class="brand-pill">Four Seasons</span>
+      <span class="brand-pill">Marriott Bonvoy</span>
+      <span class="brand-pill">Hilton Honors</span>
+      <span class="brand-pill">World of Hyatt</span>
+      <span class="brand-pill">IHG One Rewards</span>
+      <span class="brand-pill">Accor Live Limitless</span>
     </div>
   </section>
 
@@ -637,13 +664,31 @@
        ════════════════════════════════ -->
   <section class="booking" id="booking">
     <div class="booking-bg">
-      <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?w=2000&q=80" alt="European city at night" loading="lazy"/>
+      <!-- Amalfi Coast — vivid colour shows through at brightness(0.42) -->
+      <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?w=2000&q=85" alt="Amalfi Coast Italy" loading="lazy"/>
       <div class="booking-bg-overlay"></div>
     </div>
     <div class="booking-inner">
       <div class="booking-head reveal">
-        <h2>Let's Build Your <em>Trip.</em></h2>
-        <p>Tell me where you want to go and what you're working with. I'll come back to you personally within 24 hours with real options and a plan you'll actually want to take.</p>
+        <div class="eyebrow" style="justify-content:center;margin-bottom:24px;">Premium Concierge Service</div>
+        <h2>Tell Me Where You Want<br/><em>To Go.</em></h2>
+        <p>Drop your details — the messier the better. Dream destinations, tight budgets, first-class expectations on a coach budget. I read every submission personally and respond within 24 hours with a real plan worth getting on the plane for.</p>
+      </div>
+
+      <!-- 3-step process -->
+      <div class="booking-process reveal">
+        <div class="bstep">
+          <div class="bstep-num">Step 01</div>
+          <div class="bstep-label">Fill this form<br/><span style="color:rgba(212,168,67,0.7)">5 minutes</span></div>
+        </div>
+        <div class="bstep">
+          <div class="bstep-num">Step 02</div>
+          <div class="bstep-label">I research everything<br/><span style="color:rgba(212,168,67,0.7)">Within 24 hours</span></div>
+        </div>
+        <div class="bstep">
+          <div class="bstep-num">Step 03</div>
+          <div class="bstep-label">Receive your complete plan<br/><span style="color:rgba(212,168,67,0.7)">Ready to book</span></div>
+        </div>
       </div>
       <form class="form-open reveal" id="tripForm" onsubmit="handleSubmit(event)">
         <div class="form-block">
@@ -681,8 +726,8 @@
           </div>
         </div>
         <div class="form-submit-row">
-          <p>I'll respond personally within 24 hours. No spam, no upsells — ever.</p>
-          <button type="submit" class="submit-btn">Send My Inquiry →</button>
+          <p>I'll respond personally within 24 hours with real options, honest pricing, and a plan worth taking. No templates, no fluff — ever.</p>
+          <button type="submit" class="submit-btn">Let's Build This Trip →</button>
         </div>
       </form>
       <div id="formSuccess" style="display:none;text-align:center;padding:64px 0;position:relative;z-index:2;">
