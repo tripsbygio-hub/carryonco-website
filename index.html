@@ -1363,11 +1363,11 @@
           </div>
           <div class="form-group">
             <label>Service *</label>
-            <select name="service" required>
+            <select name="service" id="serviceSelect" required>
               <option value="">What do you need?</option>
-              <option>Flight + Stay Finder — from $59</option>
-              <option>Full Itinerary — from $149</option>
-              <option>Done-For-You Concierge — from $349</option>
+              <option>Flight + Stay Finder — $79</option>
+              <option>Full Itinerary — $199</option>
+              <option>Done-For-You Concierge — $499</option>
               <option>Not sure — help me decide</option>
             </select>
           </div>
@@ -1504,8 +1504,9 @@
           <h3>Stop Leaving Money on the Runway</h3>
           <p>You tell me when and where. I find the cheapest fares and best-value hotels. Delivered in 48 hours.</p>
           <div class="service-meta">
-            <span class="service-price">From $59 · 48-hour delivery</span>
-            <a href="#booking" class="service-cta">Book This →</a>
+            <span class="service-price">$79 · 48-hour delivery</span>
+            <!-- STRIPE: replace href="#booking" with your buy.stripe.com link for the $79 Flight+Stay tier -->
+            <a href="#booking" onclick="preselectService('Flight + Stay Finder — $79')" class="service-cta">Book This →</a>
           </div>
         </div>
       </div>
@@ -1516,8 +1517,9 @@
           <h3>Your Europe. Not Someone Else's.</h3>
           <p>A complete, day-by-day trip plan — flights, hotels, restaurants, and every unmissable experience. Built around your dates, budget, and travel style.</p>
           <div class="service-meta">
-            <span class="service-price">From $149 · 3–5 day delivery</span>
-            <a href="#booking" class="service-cta">Book This →</a>
+            <span class="service-price">$199 · 3–5 day delivery</span>
+            <!-- STRIPE: replace href="#booking" with your buy.stripe.com link for the $199 Full Itinerary tier -->
+            <a href="#booking" onclick="preselectService('Full Itinerary — $199')" class="service-cta">Book This →</a>
           </div>
         </div>
       </div>
@@ -1528,8 +1530,9 @@
           <h3>Hand It Over. Completely.</h3>
           <p>I handle everything — research, comparison, booking logistics — and deliver a full package. You just pack the carry-on and go.</p>
           <div class="service-meta">
-            <span class="service-price">From $349 · Full concierge</span>
-            <a href="#booking" class="service-cta">Book This →</a>
+            <span class="service-price">$499 · Full concierge</span>
+            <!-- STRIPE: replace href="#booking" with your buy.stripe.com link for the $499 Done-For-You tier -->
+            <a href="#booking" onclick="preselectService('Done-For-You Concierge — $499')" class="service-cta">Book This →</a>
           </div>
         </div>
       </div>
@@ -1837,23 +1840,64 @@
     document.getElementById('budgetValue').value = value;
   }
 
-  // Form submission (mailto fallback — replace with Tally embed or Formspree for production)
+  // Pre-select service when clicking a service card
+  function preselectService(val) {
+    setTimeout(function() {
+      var sel = document.getElementById('serviceSelect');
+      if (!sel) return;
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].text === val) { sel.selectedIndex = i; break; }
+      }
+    }, 300);
+  }
+
+  // Form submission — Formspree (free, 50/month) with mailto fallback
+  // SETUP: formspree.io → New Form → your email → copy form ID → replace FORM_ID below
+  var FORMSPREE_ID = 'FORM_ID'; // ← replace with your Formspree ID (e.g. mbldbrkj)
+
   function handleSubmit(e) {
     e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-    const params = new URLSearchParams();
-    for (let [k, v] of data.entries()) params.append(k, v);
-    // Show success state
+    var form = e.target;
+    var data = new FormData(form);
+    var btn = form.querySelector('.btn-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    if (FORMSPREE_ID && FORMSPREE_ID !== 'FORM_ID') {
+      fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST', body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r) {
+        if (r.ok) { showFormSuccess(form); }
+        else { fallbackMailto(data); showFormSuccess(form); }
+      }).catch(function() { fallbackMailto(data); showFormSuccess(form); });
+    } else {
+      fallbackMailto(data);
+      showFormSuccess(form);
+    }
+  }
+
+  function showFormSuccess(form) {
     form.style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
-    // Send to email via mailto (replace with proper form endpoint)
-    const name = data.get('name') || '';
-    const email = data.get('email') || '';
-    const dest = data.get('destinations') || '';
-    const service = data.get('service') || '';
-    const notes = data.get('notes') || '';
-    window.location.href = `mailto:hello@carryonco.net?subject=New Trip Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ADestinations: ${encodeURIComponent(dest)}%0AService: ${encodeURIComponent(service)}%0ANotes: ${encodeURIComponent(notes)}`;
+  }
+
+  function fallbackMailto(data) {
+    var name    = data.get('name') || '';
+    var email   = data.get('email') || '';
+    var dest    = data.get('destinations') || '';
+    var service = data.get('service') || '';
+    var budget  = data.get('budget') || '';
+    var notes   = data.get('notes') || '';
+    window.open(
+      'mailto:hello@carryonco.net' +
+      '?subject=' + encodeURIComponent('New Trip Inquiry from ' + name) +
+      '&body=' + encodeURIComponent(
+        'Name: ' + name + '\nEmail: ' + email +
+        '\nService: ' + service + '\nDestinations: ' + dest +
+        '\nBudget: ' + budget + '\nNotes: ' + notes
+      ), '_blank'
+    );
   }
 
   // Sticky CTA: show after scrolling past hero, hide when booking section is visible
